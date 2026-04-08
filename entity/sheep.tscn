@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c6fa3ik7hdw4n"]
+
+[ext_resource type="Script" uid="uid://d3p2yt0wgwgwu" path="res://entity/sheep.gd" id="1_mn4pi"]
+[ext_resource type="Texture2D" uid="uid://jcos7ku565q" path="res://icon.svg" id="1_wl4j8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mn4pi"]
+radius = 69.0
+
+[node name="Sheep" type="CharacterBody2D" unique_id=409841071]
+collision_mask = 17
+script = ExtResource("1_mn4pi")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1727958740]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+texture_normal = ExtResource("1_wl4j8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=172810179]
+shape = SubResource("CircleShape2D_mn4pi")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

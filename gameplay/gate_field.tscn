@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ck5yd7gjcd6de"]
+
+[ext_resource type="Script" uid="uid://8sp330kpq1ml" path="res://gameplay/gate_field.gd" id="1_htcj0"]
+
+[node name="GateField" type="Node2D" unique_id=1050532754]
+script = ExtResource("1_htcj0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=259527872]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=558927651]
+build_mode = 1
+polygon = PackedVector2Array(0, 0, 2560, 0, 2560, 1440, 0, 1440)

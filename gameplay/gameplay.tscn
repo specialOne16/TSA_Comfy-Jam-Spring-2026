@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bom5fwcodvsft"]
+
+[ext_resource type="PackedScene" uid="uid://ck5yd7gjcd6de" path="res://gameplay/gate_field.tscn" id="1_41n4r"]
+[ext_resource type="Script" uid="uid://bub08an1ct4m2" path="res://gameplay/gameplay.gd" id="1_ueusv"]
+[ext_resource type="PackedScene" uid="uid://bvckg0bj6wqqt" path="res://gameplay/inspection.tscn" id="2_ueusv"]
+
+[node name="Gameplay" type="Node2D" unique_id=1278754783]
+script = ExtResource("1_ueusv")
+
+[node name="GateField" parent="." unique_id=1050532754 instance=ExtResource("1_41n4r")]
+
+[node name="Inspection" parent="." unique_id=186340771 instance=ExtResource("2_ueusv")]

@@ -3,6 +3,8 @@ class_name Inspection
 
 enum Pov { SIDE, BACK, FACE }
 
+signal sheep_tossed(sheep: Sheep)
+
 @onready var color_rect: ColorRect = $Control/ColorRect
 @onready var debug_data: Label = $Control/DebugData
 @onready var left_button: Button = $Control/LeftButton
@@ -22,7 +24,7 @@ func inspect(sheep: Sheep):
 	var tween = create_tween()
 	tween.set_parallel()
 	tween.tween_property(sheep, "position", Vector2(1280, 720), 1)
-	tween.tween_property(sheep, "scale", Vector2.ONE * 8, 1)
+	tween.tween_property(sheep.sprite_2d, "scale", Vector2.ONE * 8, 1)
 	tween.tween_property(color_rect, "color", Color.hex(0x00000060), 1)
 	
 	setup_button()
@@ -86,6 +88,7 @@ func _on_right_button_pressed() -> void:
 
 
 func _on_toss_button_pressed() -> void:
+	sheep_tossed.emit(inspecting_sheep)
 	inspecting_sheep.queue_free()
 	inspecting_sheep = null
 	setup_button()
@@ -94,7 +97,7 @@ func _on_toss_button_pressed() -> void:
 func _on_keep_button_pressed() -> void:
 	var tween = create_tween()
 	tween.set_parallel()
-	tween.tween_property(inspecting_sheep, "scale", Vector2.ONE, 1)
+	tween.tween_property(inspecting_sheep.sprite_2d, "scale", Vector2.ONE, 1)
 	tween.tween_property(color_rect, "color", Color.hex(0x00000000), 1)
 	
 	await tween.finished

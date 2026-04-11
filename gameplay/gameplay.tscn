@@ -10,3 +10,30 @@ script = ExtResource("1_ueusv")
 [node name="GateField" parent="." unique_id=1050532754 instance=ExtResource("1_41n4r")]
 
 [node name="Inspection" parent="." unique_id=186340771 instance=ExtResource("2_ueusv")]
+
+[node name="Control" type="Control" parent="." unique_id=2071808227]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 2560.0
+offset_bottom = 1440.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1989112351]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TsaRuleLabel" type="Label" parent="Control/VBoxContainer" unique_id=1588890191]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+
+[node name="WaveStatLabel" type="Label" parent="Control/VBoxContainer" unique_id=1136107404]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+
+[node name="NextWaveButton" type="Button" parent="Control" unique_id=1362721188]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="sheep_tossed" from="Inspection" to="." method="_on_inspection_sheep_tossed"]

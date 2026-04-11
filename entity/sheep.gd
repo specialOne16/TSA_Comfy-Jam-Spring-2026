@@ -2,8 +2,8 @@ extends CharacterBody2D
 class_name Sheep
 
 enum WoolSpot { WHITE, BROWN, BLACK, NOTHING }
-enum Tag { RED, BLUE, GREEN }
-enum Tail { FAT, LONG, SHORT }
+enum NeckTag { RED, BLUE, GREEN }
+enum TailType { FAT, LONG, SHORT }
 
 signal inspect(sheep: Sheep)
 
@@ -11,6 +11,14 @@ signal inspect(sheep: Sheep)
 
 var remaining_time: float = 0
 var inspecting: bool = false
+
+var wool_spot: WoolSpot = WoolSpot.values().pick_random()
+var neck_tag: NeckTag = NeckTag.values().pick_random()
+var tail_type: TailType = TailType.values().pick_random()
+
+func un_inspect():
+	inspecting = false
+	collision_shape_2d.disabled = false
 
 func _ready() -> void:
 	remaining_time = randf_range(-1, 2)

@@ -5,8 +5,94 @@
 [node name="Inspection" type="Node2D" unique_id=1021310556]
 script = ExtResource("1_2td1x")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2037419534]
-z_index = 1
+[node name="Control" type="Control" parent="." unique_id=446630019]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 2560.0
 offset_bottom = 1440.0
-color = Color(1, 1, 1, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=2037419534]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="LeftButton" type="Button" parent="Control" unique_id=391010696]
+z_index = 2
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_right = 8.0
+offset_bottom = 4.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "Left"
+
+[node name="RightButton" type="Button" parent="Control" unique_id=1095454199]
+z_index = 2
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "Right"
+
+[node name="DebugData" type="Label" parent="Control" unique_id=1736871600]
+z_index = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -762.0
+offset_top = -253.0
+offset_right = 762.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=1560036121]
+z_index = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -105.5
+offset_top = -66.0
+offset_right = 105.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 192
+
+[node name="TossButton" type="Button" parent="Control/HBoxContainer" unique_id=2048720317]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Toss"
+
+[node name="KeepButton" type="Button" parent="Control/HBoxContainer" unique_id=1601476137]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Keep"
+
+[connection signal="pressed" from="Control/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="Control/RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/TossButton" to="." method="_on_toss_button_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/KeepButton" to="." method="_on_keep_button_pressed"]

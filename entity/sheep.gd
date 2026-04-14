@@ -13,6 +13,7 @@ signal inspect(sheep: Sheep)
 
 var remaining_time: float = 0
 var inspecting: bool = false
+var inspectable: bool = true
 
 var wool_spot: WoolSpot
 var neck_tag: NeckTag
@@ -23,6 +24,7 @@ func un_inspect():
 	sprite_2d.visible = false
 
 func exit_gate():
+	inspectable = false
 	navigation_agent_2d.target_position = Vector2(-1280, 720)
 	navigation_agent_2d.target_reached.connect(queue_free)
 	set_collision_layer_value(1, false)
@@ -32,13 +34,18 @@ func exit_gate():
 	set_collision_mask_value(2, true)
 
 func enter_gate(spawn_spot: int):
+	inspectable = false
 	@warning_ignore("integer_division")
 	position = Vector2(-spawn_spot / 5, spawn_spot % 5) * 128 + Vector2(-128, 720)
 	
 	await ready
 	
 	navigation_agent_2d.target_position = position + Vector2.RIGHT * 1720
-	navigation_agent_2d.target_reached.connect(set_collision_mask_value.bind(5, true))
+	navigation_agent_2d.target_reached.connect(
+		func():
+			set_collision_mask_value(5, true)
+			inspectable = true
+	)
 	set_collision_layer_value(1, false)
 	set_collision_mask_value(1, false)
 	set_collision_mask_value(5, false)
@@ -69,6 +76,8 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 func _on_texture_button_pressed() -> void:
+	if not inspectable: return
+	
 	inspecting = true
 	sprite_2d.visible = true
 	

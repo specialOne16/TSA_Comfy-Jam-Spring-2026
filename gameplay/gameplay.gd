@@ -6,6 +6,7 @@ extends Node2D
 @onready var tsa_rule_label: Label = $Control/VBoxContainer/TsaRuleLabel
 @onready var wave_stat_label: Label = $Control/VBoxContainer/WaveStatLabel
 @onready var next_wave_button: Button = $Control/NextWaveButton
+@onready var restart_wave_button: Button = $Control/RestartWaveButton
 
 var wool_spot_rule: Sheep.WoolSpot
 var neck_tag_rule: Sheep.NeckTag
@@ -19,7 +20,7 @@ var imposter_tossed = 0
 func _ready() -> void:
 	gate_field.inspect.connect(inspection.inspect)
 	next_wave_button.visible = false
-	Globals.wave += 1
+	restart_wave_button.visible = false
 	
 	wool_spot_rule = Sheep.WoolSpot.values().pick_random()
 	neck_tag_rule = Sheep.NeckTag.values().pick_random()
@@ -52,3 +53,16 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 	if imposter_tossed >= imposter_count:
 		gate_field.inspect.disconnect(inspection.inspect)
 		next_wave_button.visible = true
+	
+	if real_sheep_tossed >= 2:
+		gate_field.inspect.disconnect(inspection.inspect)
+		restart_wave_button.visible = true
+
+
+func _on_next_wave_button_pressed() -> void:
+	Globals.wave += 1
+	get_tree().reload_current_scene()
+
+
+func _on_restart_wave_button_pressed() -> void:
+	get_tree().reload_current_scene()

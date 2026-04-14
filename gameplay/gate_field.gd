@@ -5,14 +5,12 @@ const SHEEP = preload("uid://c6fa3ik7hdw4n")
 
 signal inspect(sheep: Sheep)
 
-var wave_number: int = 0
-
 func spawn_sheep(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, tail_type_rule: Sheep.TailType) -> Dictionary:
 	var total_sheep = randi_range(6, 14)
 	var base_imposters = randi_range(2, 5)
 	
 	@warning_ignore("integer_division")
-	var bonus = wave_number / 3
+	var bonus = Globals.wave / 3
 	
 	var imposter_count = min(base_imposters + bonus, total_sheep - 2)
 	var real_sheep_count = total_sheep - imposter_count

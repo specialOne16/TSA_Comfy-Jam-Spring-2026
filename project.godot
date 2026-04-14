@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Transportation Sheep Administration"
-run/main_scene="uid://bom5fwcodvsft"
+run/main_scene="uid://d0slxx72bqhb3"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 

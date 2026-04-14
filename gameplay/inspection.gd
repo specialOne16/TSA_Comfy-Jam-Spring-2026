@@ -27,6 +27,8 @@ func inspect(sheep: Sheep):
 	tween.tween_property(sheep.sprite_2d, "scale", Vector2.ONE * 8, 1)
 	tween.tween_property(color_rect, "color", Color.hex(0x00000060), 1)
 	
+	await tween.finished
+	
 	setup_button()
 
 

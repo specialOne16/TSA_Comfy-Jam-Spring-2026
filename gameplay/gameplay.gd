@@ -1,5 +1,7 @@
 extends Node2D
 
+const GATE_OPEN_TRIGGER = [0.4, 0.6, 0.8]
+
 @onready var gate_field: GateField = $GateField
 @onready var inspection: Inspection = $Inspection
 
@@ -13,6 +15,7 @@ var neck_tag_rule: Sheep.NeckTag
 var tail_type_rule: Sheep.TailType
 
 var imposter_count = 0
+var gate_opened = 0
 
 var real_sheep_tossed = 0
 var imposter_tossed = 0
@@ -36,9 +39,6 @@ func _ready() -> void:
 		Sheep.NeckTag.keys()[neck_tag_rule],
 		Sheep.TailType.keys()[tail_type_rule]
 	]
-	
-	await get_tree().create_timer(2).timeout
-	gate_field.open_gate(wool_spot_rule, neck_tag_rule, tail_type_rule)
 
 
 func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
@@ -52,6 +52,11 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 	else: imposter_tossed += 1
 	
 	wave_stat_label.text = "Tossed: %d real sheep, %d imposter" % [real_sheep_tossed, imposter_tossed]
+	
+	if imposter_tossed < imposter_count:
+		if float(imposter_tossed) / imposter_count >= GATE_OPEN_TRIGGER[gate_opened]:
+			gate_opened += 1
+			gate_field.open_gate(wool_spot_rule, neck_tag_rule, tail_type_rule)
 	
 	if imposter_tossed >= imposter_count:
 		gate_field.inspect.disconnect(inspection.inspect)

@@ -11,4 +11,4 @@ collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=558927651]
 build_mode = 1
-polygon = PackedVector2Array(0, 0, 2560, 0, 2560, 1440, 0, 1440)
+polygon = PackedVector2Array(1280, 0, 2560, 0, 2560, 1440, 1280, 1440)

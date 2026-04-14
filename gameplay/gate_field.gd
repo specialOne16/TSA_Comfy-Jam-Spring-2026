@@ -3,9 +3,15 @@ class_name GateField
 
 const SHEEP = preload("uid://c6fa3ik7hdw4n")
 
+var spot_mapping: Array[int]
+
 signal inspect(sheep: Sheep)
 
 func spawn_sheep(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, tail_type_rule: Sheep.TailType) -> Dictionary:
+	spot_mapping.clear()
+	for i in range(25): spot_mapping.append(i)
+	spot_mapping.shuffle()
+	
 	var total_sheep = randi_range(6, 14)
 	var base_imposters = randi_range(2, 5)
 	
@@ -15,19 +21,27 @@ func spawn_sheep(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, t
 	var imposter_count = min(base_imposters + bonus, total_sheep - 2)
 	var real_sheep_count = total_sheep - imposter_count
 	
+	var spawn_spot = 0
+	
 	for i in range(imposter_count):
 		var imposter: Sheep = SHEEP.instantiate()
-		imposter.position = Vector2(randf_range(640, 2560 - 640), randf_range(360, 1440 - 360))
+		@warning_ignore("integer_division")
+		imposter.position = _generate_spawn_position(spawn_spot)
 		imposter.inspect.connect(_inspect_sheep)
-		initialize_sheep(imposter, false, wool_spot_rule, neck_tag_rule, tail_type_rule)
+		_initialize_sheep(imposter, false, wool_spot_rule, neck_tag_rule, tail_type_rule)
 		get_parent().add_child.call_deferred(imposter)
+		
+		spawn_spot += 1
 	
 	for i in range(real_sheep_count):
 		var real_sheep: Sheep = SHEEP.instantiate()
-		real_sheep.position = Vector2(randf_range(640, 2560 - 640), randf_range(360, 1440 - 360))
+		@warning_ignore("integer_division")
+		real_sheep.position = _generate_spawn_position(spawn_spot)
 		real_sheep.inspect.connect(_inspect_sheep)
-		initialize_sheep(real_sheep, true, wool_spot_rule, neck_tag_rule, tail_type_rule)
+		_initialize_sheep(real_sheep, true, wool_spot_rule, neck_tag_rule, tail_type_rule)
 		get_parent().add_child.call_deferred(real_sheep)
+		
+		spawn_spot += 1
 	
 	return {
 		"total_sheep": total_sheep,
@@ -36,7 +50,7 @@ func spawn_sheep(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, t
 
 func _inspect_sheep(sheep: Sheep): inspect.emit(sheep)
 
-func initialize_sheep(sheep: Sheep, real_sheep: bool, wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, tail_type_rule: Sheep.TailType):
+func _initialize_sheep(sheep: Sheep, real_sheep: bool, wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, tail_type_rule: Sheep.TailType):
 	var follow_rule_count = randi_range(2, 3) if real_sheep else randi_range(0, 1)
 	
 	var follow_wool_spot_rule = true if follow_rule_count == 3 else randi_range(0, follow_rule_count) > 0
@@ -66,3 +80,10 @@ func initialize_sheep(sheep: Sheep, real_sheep: bool, wool_spot_rule: Sheep.Wool
 	assert(follow_rule_count == 0)
 	
 	if not real_sheep: sheep.modulate = Color.RED
+
+func _generate_spawn_position(spot: int) -> Vector2:
+	var actual_spot = spot_mapping[spot]
+	@warning_ignore("integer_division")
+	var y_pos = (actual_spot / 5) * 256 + randf_range(-128, 128) / 2 + 128
+	var x_pos = 1280 + (actual_spot % 5) * 256 + randf_range(-128, 128) / 2 + 128
+	return Vector2(x_pos, y_pos)

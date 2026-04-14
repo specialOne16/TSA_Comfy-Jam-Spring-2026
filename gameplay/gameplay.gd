@@ -36,6 +36,9 @@ func _ready() -> void:
 		Sheep.NeckTag.keys()[neck_tag_rule],
 		Sheep.TailType.keys()[tail_type_rule]
 	]
+	
+	await get_tree().create_timer(2).timeout
+	gate_field.open_gate(wool_spot_rule, neck_tag_rule, tail_type_rule)
 
 
 func _on_inspection_sheep_tossed(sheep: Sheep) -> void:

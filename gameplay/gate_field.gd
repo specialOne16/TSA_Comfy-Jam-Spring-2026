@@ -4,11 +4,13 @@ class_name GateField
 const SHEEP = preload("uid://c6fa3ik7hdw4n")
 
 var spot_mapping: Array[int]
+var real_sheep_store: Array[Sheep]
 
 signal inspect(sheep: Sheep)
 
 func spawn_sheep(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, tail_type_rule: Sheep.TailType) -> Dictionary:
 	spot_mapping.clear()
+	real_sheep_store.clear()
 	for i in range(25): spot_mapping.append(i)
 	spot_mapping.shuffle()
 	
@@ -25,7 +27,6 @@ func spawn_sheep(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, t
 	
 	for i in range(imposter_count):
 		var imposter: Sheep = SHEEP.instantiate()
-		@warning_ignore("integer_division")
 		imposter.position = _generate_spawn_position(spawn_spot)
 		imposter.inspect.connect(_inspect_sheep)
 		_initialize_sheep(imposter, false, wool_spot_rule, neck_tag_rule, tail_type_rule)
@@ -35,18 +36,53 @@ func spawn_sheep(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, t
 	
 	for i in range(real_sheep_count):
 		var real_sheep: Sheep = SHEEP.instantiate()
-		@warning_ignore("integer_division")
 		real_sheep.position = _generate_spawn_position(spawn_spot)
 		real_sheep.inspect.connect(_inspect_sheep)
 		_initialize_sheep(real_sheep, true, wool_spot_rule, neck_tag_rule, tail_type_rule)
 		get_parent().add_child.call_deferred(real_sheep)
 		
 		spawn_spot += 1
+		real_sheep_store.append(real_sheep)
 	
 	return {
 		"total_sheep": total_sheep,
 		"imposter_count": imposter_count
 	}
+
+func open_gate(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, tail_type_rule: Sheep.TailType):
+	var should_exit_gate = randi_range(0, 1) == 0
+	if should_exit_gate or true:
+		var exit_gate_amount = randi_range(1, 4)
+		while exit_gate_amount > 0 and not real_sheep_store.is_empty():
+			var sheep_to_exit = real_sheep_store.pick_random()
+			real_sheep_store.erase(sheep_to_exit)
+			if is_instance_valid(sheep_to_exit) and not sheep_to_exit.inspecting:
+				sheep_to_exit.exit_gate()
+				exit_gate_amount -= 1
+	
+	var new_sheep_count = randi_range(1, 5)
+	var new_imposter_count = roundi(new_sheep_count * randf_range(0.4, 0.6))
+	
+	var spawn_spot = 0
+	
+	for i in range(new_imposter_count):
+		var imposter: Sheep = SHEEP.instantiate()
+		imposter.enter_gate(spawn_spot)
+		imposter.inspect.connect(_inspect_sheep)
+		_initialize_sheep(imposter, false, wool_spot_rule, neck_tag_rule, tail_type_rule)
+		get_parent().add_child.call_deferred(imposter)
+		
+		spawn_spot += 1
+	
+	for i in range(new_sheep_count - new_imposter_count):
+		var real_sheep: Sheep = SHEEP.instantiate()
+		real_sheep.enter_gate(spawn_spot)
+		real_sheep.inspect.connect(_inspect_sheep)
+		_initialize_sheep(real_sheep, true, wool_spot_rule, neck_tag_rule, tail_type_rule)
+		get_parent().add_child.call_deferred(real_sheep)
+		
+		spawn_spot += 1
+		real_sheep_store.append(real_sheep)
 
 func _inspect_sheep(sheep: Sheep): inspect.emit(sheep)
 

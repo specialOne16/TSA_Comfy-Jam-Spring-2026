@@ -9,6 +9,7 @@ signal inspect(sheep: Sheep)
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
 var remaining_time: float = 0
 var inspecting: bool = false
@@ -21,6 +22,29 @@ func un_inspect():
 	inspecting = false
 	sprite_2d.visible = false
 
+func exit_gate():
+	navigation_agent_2d.target_position = Vector2(-1280, 720)
+	navigation_agent_2d.target_reached.connect(queue_free)
+	set_collision_layer_value(1, false)
+	set_collision_mask_value(1, false)
+	set_collision_mask_value(5, false)
+	set_collision_layer_value(2, true)
+	set_collision_mask_value(2, true)
+
+func enter_gate(spawn_spot: int):
+	@warning_ignore("integer_division")
+	position = Vector2(-spawn_spot / 5, spawn_spot % 5) * 128 + Vector2(-128, 720)
+	
+	await ready
+	
+	navigation_agent_2d.target_position = position + Vector2.RIGHT * 1720
+	navigation_agent_2d.target_reached.connect(set_collision_mask_value.bind(5, true))
+	set_collision_layer_value(1, false)
+	set_collision_mask_value(1, false)
+	set_collision_mask_value(5, false)
+	set_collision_layer_value(3, true)
+	set_collision_mask_value(3, true)
+
 func _ready() -> void:
 	sprite_2d.visible = false
 	
@@ -28,15 +52,18 @@ func _ready() -> void:
 	velocity = Vector2.from_angle(randf_range(0, TAU)) * randf_range(100, 150)
 
 func _physics_process(delta: float) -> void:
-	remaining_time -= delta
-	
-	if remaining_time < 0:
-		remaining_time = randf_range(1, 3)
+	if navigation_agent_2d.target_position != Vector2.ZERO and not navigation_agent_2d.is_target_reached():
+		velocity = global_position.direction_to(navigation_agent_2d.get_next_path_position()) * 150
+	else:
+		remaining_time -= delta
 		
-		if velocity == Vector2.ZERO:
-			velocity = Vector2.from_angle(randf_range(0, TAU)) * randf_range(100, 150)
-		else:
-			velocity = Vector2.ZERO
+		if remaining_time < 0:
+			remaining_time = randf_range(1, 3)
+			
+			if velocity == Vector2.ZERO:
+				velocity = Vector2.from_angle(randf_range(0, TAU)) * randf_range(100, 150)
+			else:
+				velocity = Vector2.ZERO
 	
 	if not inspecting:
 		move_and_slide()

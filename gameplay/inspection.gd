@@ -99,6 +99,7 @@ func _on_toss_button_pressed() -> void:
 func _on_keep_button_pressed() -> void:
 	var tween = create_tween()
 	tween.set_parallel()
+	tween.tween_property(inspecting_sheep, "position", Vector2(1740, 720), 1)
 	tween.tween_property(inspecting_sheep.sprite_2d, "scale", Vector2.ONE, 1)
 	tween.tween_property(color_rect, "color", Color.hex(0x00000000), 1)
 	

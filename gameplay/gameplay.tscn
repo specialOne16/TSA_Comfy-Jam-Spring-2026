@@ -4,12 +4,20 @@
 [ext_resource type="Script" uid="uid://bub08an1ct4m2" path="res://gameplay/gameplay.gd" id="1_ueusv"]
 [ext_resource type="PackedScene" uid="uid://bvckg0bj6wqqt" path="res://gameplay/inspection.tscn" id="2_ueusv"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ueusv"]
+vertices = PackedVector2Array(1354, 650, 1354, 74, 2486, 74, 2486, 1334, 1354, 1334, 1354, 822, -138, 650, -138, 822, -138, 1398, -2550, 1398, -2550, 10, -138, 10)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5), PackedInt32Array(0, 3, 5), PackedInt32Array(6, 0, 5, 7), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(6, 7, 10), PackedInt32Array(11, 6, 10)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-2560, 0, -128, 0, -128, 640, 1344, 640, 1344, 64, 2496, 64, 2496, 1344, 1344, 1344, 1344, 832, -128, 832, -128, 1408, -2560, 1408)])
+
 [node name="Gameplay" type="Node2D" unique_id=1278754783]
 script = ExtResource("1_ueusv")
 
 [node name="GateField" parent="." unique_id=1050532754 instance=ExtResource("1_41n4r")]
 
 [node name="Inspection" parent="." unique_id=186340771 instance=ExtResource("2_ueusv")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=231919822]
+navigation_polygon = SubResource("NavigationPolygon_ueusv")
 
 [node name="Control" type="Control" parent="." unique_id=2071808227]
 z_index = 3

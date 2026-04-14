@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Sheep
 
-enum WoolSpot { WHITE, BROWN, BLACK, NOTHING }
+enum WoolSpot { BROWN, BLACK, NOTHING }
 enum NeckTag { RED, BLUE, GREEN }
 enum TailType { FAT, LONG, SHORT }
 

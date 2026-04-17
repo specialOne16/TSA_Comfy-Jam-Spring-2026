@@ -75,6 +75,7 @@ func _physics_process(delta: float) -> void:
 				velocity = Vector2.from_angle(randf_range(0, TAU)) * randf_range(100, 150)
 			else:
 				velocity = Vector2.ZERO
+				animated_sprite_2d.play("idle")
 	
 	if not inspecting:
 		if velocity.x > 0: animated_sprite_2d.flip_h = true

@@ -2,45 +2,46 @@
 
 [ext_resource type="Script" uid="uid://d3p2yt0wgwgwu" path="res://entity/sheep.gd" id="1_mn4pi"]
 [ext_resource type="Texture2D" uid="uid://jcos7ku565q" path="res://icon.svg" id="1_wl4j8"]
-[ext_resource type="Texture2D" uid="uid://7ewe7wmo63j8" path="res://assets/Sheep/Baa Sound_Idle Walk/Baa_Walk-1.png" id="3_0nenp"]
-[ext_resource type="Texture2D" uid="uid://culm2mcbwmewl" path="res://assets/Sheep/Baa Sound_Idle Walk/Baa_Walk-2.png" id="4_fnw5a"]
-[ext_resource type="Texture2D" uid="uid://b5sjhfkrh40xg" path="res://assets/Sheep/Baa Sound_Idle Walk/Baa_Walk-3.png" id="5_t5t5a"]
-[ext_resource type="Texture2D" uid="uid://dng7sq8df6ri2" path="res://assets/Sheep/Baa Sound_Idle Walk/Baa_Walk-4.png" id="6_iir77"]
-[ext_resource type="Texture2D" uid="uid://cwcnvrrq3fwvb" path="res://assets/Sheep/Baa Sound_Idle Walk/Baa_Walk-5.png" id="7_enykk"]
-[ext_resource type="Texture2D" uid="uid://d12v1un2uiswl" path="res://assets/Sheep/NoTilt_Idle Walk/NoTilt_Walk-1.png" id="8_2s3ch"]
-[ext_resource type="Texture2D" uid="uid://c17wp5nnnd1fy" path="res://assets/Sheep/NoTilt_Idle Walk/NoTilt_Walk-2.png" id="9_av2nl"]
-[ext_resource type="Texture2D" uid="uid://c17qiqxb7wi1o" path="res://assets/Sheep/NoTilt_Idle Walk/NoTilt_Walk-3.png" id="10_204yd"]
-[ext_resource type="Texture2D" uid="uid://bud6nl2alnqpy" path="res://assets/Sheep/NoTilt_Idle Walk/NoTilt_Walk-4.png" id="11_xp5h1"]
-[ext_resource type="Texture2D" uid="uid://bto6y3ce4iaqu" path="res://assets/Sheep/NoTilt_Idle Walk/NoTilt_Walk-5.png" id="12_uor72"]
-[ext_resource type="Texture2D" uid="uid://khv3ojoqn6cd" path="res://assets/Sheep/HeadTilt_Idle Walk/Tilt_Walk-1.png" id="13_70i86"]
-[ext_resource type="Texture2D" uid="uid://bxqmoy8xtesoq" path="res://assets/Sheep/HeadTilt_Idle Walk/Tilt_Walk-2.png" id="14_ajqyo"]
-[ext_resource type="Texture2D" uid="uid://ch4s5m104o0sa" path="res://assets/Sheep/HeadTilt_Idle Walk/Tilt_Walk-3.png" id="15_0rhck"]
-[ext_resource type="Texture2D" uid="uid://cbqi5ekacctl8" path="res://assets/Sheep/HeadTilt_Idle Walk/Tilt_Walk-4.png" id="16_3qtjd"]
-[ext_resource type="Texture2D" uid="uid://bjrxnsbls5i7x" path="res://assets/Sheep/HeadTilt_Idle Walk/Tilt_Walk-5.png" id="17_pg58l"]
+[ext_resource type="Texture2D" uid="uid://b2r5heyi28e4o" path="res://assets/Sheep/Shrunk Baa Walk/Baa_Walk-1.png" id="2_204yd"]
+[ext_resource type="Texture2D" uid="uid://ca7ursnjupgy0" path="res://assets/Sheep/Shrunk Baa Walk/Baa_Walk-2.png" id="3_xp5h1"]
+[ext_resource type="Texture2D" uid="uid://c82pnuyawps3c" path="res://assets/Sheep/Shrunk Baa Walk/Baa_Walk-3.png" id="4_uor72"]
+[ext_resource type="Texture2D" uid="uid://bsq7etenayorv" path="res://assets/Sheep/Shrunk Baa Walk/Baa_Walk-4.png" id="5_70i86"]
+[ext_resource type="Texture2D" uid="uid://ym2uu0qaqaw7" path="res://assets/Sheep/Shrunk Baa Walk/Baa_Walk-5.png" id="6_ajqyo"]
+[ext_resource type="Texture2D" uid="uid://dh1e7q2mnfpbf" path="res://assets/Sheep/Shrunk Idle/Idle-1.png" id="7_0rhck"]
+[ext_resource type="Texture2D" uid="uid://dys0dn1uovnm1" path="res://assets/Sheep/Shrunk Idle/Idle-2.png" id="8_3qtjd"]
+[ext_resource type="Texture2D" uid="uid://ds2g3ktj7dh5r" path="res://assets/Sheep/Shrunk Idle/Idle-3.png" id="9_pg58l"]
+[ext_resource type="Texture2D" uid="uid://dr4q55gbh2iat" path="res://assets/Sheep/Shrunk Idle/Idle-4.png" id="10_3q2d2"]
+[ext_resource type="Texture2D" uid="uid://b7wvj37huqr4f" path="res://assets/Sheep/Shrunk No Tilt Walk/NoTilt_Walk-1.png" id="11_ute07"]
+[ext_resource type="Texture2D" uid="uid://dpm0ba360xee0" path="res://assets/Sheep/Shrunk No Tilt Walk/NoTilt_Walk-2.png" id="12_1u4ir"]
+[ext_resource type="Texture2D" uid="uid://dnstg3xfqlu1d" path="res://assets/Sheep/Shrunk No Tilt Walk/NoTilt_Walk-3.png" id="13_6qj8p"]
+[ext_resource type="Texture2D" uid="uid://bmm8gn770mqt1" path="res://assets/Sheep/Shrunk No Tilt Walk/NoTilt_Walk-4.png" id="14_bs6ow"]
+[ext_resource type="Texture2D" uid="uid://c6m5j7lufhcsx" path="res://assets/Sheep/Shrunk No Tilt Walk/NoTilt_Walk-5.png" id="15_w8635"]
+[ext_resource type="Texture2D" uid="uid://bs6mescns8xlw" path="res://assets/Sheep/Shrunk Tilt Walk/Tilt_Walk-1.png" id="16_m8ayq"]
+[ext_resource type="Texture2D" uid="uid://dnna0ynusddt8" path="res://assets/Sheep/Shrunk Tilt Walk/Tilt_Walk-2.png" id="17_bnt6g"]
+[ext_resource type="Texture2D" uid="uid://jhkf07xnu8xs" path="res://assets/Sheep/Shrunk Tilt Walk/Tilt_Walk-3.png" id="18_0pp2w"]
 [ext_resource type="AudioStream" uid="uid://l6ayfirrp33i" path="res://audio/Baaah_A.wav" id="18_iir77"]
+[ext_resource type="Texture2D" uid="uid://bysqg650wx8l4" path="res://assets/Sheep/Shrunk Tilt Walk/Tilt_Walk-4.png" id="19_abfe5"]
 [ext_resource type="AudioStream" uid="uid://5fsly7kblxhd" path="res://audio/Baaah_B.wav" id="19_enykk"]
 [ext_resource type="AudioStream" uid="uid://ckjjkwkfloid1" path="res://audio/Baaah_C.wav" id="20_2s3ch"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_mn4pi"]
-radius = 69.0
+[ext_resource type="Texture2D" uid="uid://i70g7bynij08" path="res://assets/Sheep/Shrunk Tilt Walk/Tilt_Walk-5.png" id="20_qemy7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3q2d2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_0nenp")
+"texture": ExtResource("2_204yd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_fnw5a")
+"texture": ExtResource("3_xp5h1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_t5t5a")
+"texture": ExtResource("4_uor72")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_iir77")
+"texture": ExtResource("5_70i86")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_enykk")
+"texture": ExtResource("6_ajqyo")
 }],
 "loop": false,
 "name": &"baa",
@@ -48,19 +49,36 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_2s3ch")
+"texture": ExtResource("7_0rhck")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_av2nl")
+"texture": ExtResource("8_3qtjd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_204yd")
+"texture": ExtResource("9_pg58l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_xp5h1")
+"texture": ExtResource("10_3q2d2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_ute07")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_uor72")
+"texture": ExtResource("12_1u4ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6qj8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bs6ow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_w8635")
 }],
 "loop": false,
 "name": &"notilt",
@@ -68,47 +86,48 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("13_70i86")
+"texture": ExtResource("16_m8ayq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_ajqyo")
+"texture": ExtResource("17_bnt6g")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_0rhck")
+"texture": ExtResource("18_0pp2w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_3qtjd")
+"texture": ExtResource("19_abfe5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_pg58l")
+"texture": ExtResource("20_qemy7")
 }],
 "loop": false,
 "name": &"tilt",
 "speed": 6.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mn4pi"]
+radius = 101.0
+
 [node name="Sheep" type="CharacterBody2D" unique_id=409841071]
 collision_mask = 17
 script = ExtResource("1_mn4pi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1014830072]
+position = Vector2(0, -14.999999)
+sprite_frames = SubResource("SpriteFrames_3q2d2")
+animation = &"notilt"
+autoplay = "notilt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=172810179]
 shape = SubResource("CircleShape2D_mn4pi")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=893425560]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1014830072]
-position = Vector2(0, -14.999999)
-scale = Vector2(0.1, 0.1)
-sprite_frames = SubResource("SpriteFrames_3q2d2")
-animation = &"notilt"
-autoplay = "notilt"
-
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1727958740]
 modulate = Color(1, 1, 1, 0)
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = -128.0
+offset_top = -128.0
+scale = Vector2(2, 2)
 texture_normal = ExtResource("1_wl4j8")
 
 [node name="BaaahA" type="AudioStreamPlayer" parent="." unique_id=796747411]

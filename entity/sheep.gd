@@ -73,6 +73,9 @@ func _physics_process(delta: float) -> void:
 			
 			if velocity == Vector2.ZERO:
 				velocity = Vector2.from_angle(randf_range(0, TAU)) * randf_range(100, 150)
+				var anim = ANIM.pick_random()
+				if anim == "baa": baa.pick_random().play()
+				animated_sprite_2d.play(anim)
 			else:
 				velocity = Vector2.ZERO
 				animated_sprite_2d.play("idle")

@@ -64,10 +64,10 @@ func open_gate(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, tai
 		var exit_gate_amount = randi_range(1, 4)
 		while exit_gate_amount > 0 and not real_sheep_store.is_empty():
 			var sheep_to_exit = real_sheep_store.pick_random()
-			real_sheep_store.erase(sheep_to_exit)
 			if is_instance_valid(sheep_to_exit) and not sheep_to_exit.inspecting:
 				sheep_to_exit.exit_gate()
 				exit_gate_amount -= 1
+				real_sheep_store.erase(sheep_to_exit)
 	
 	var new_sheep_count = randi_range(1, 5)
 	var new_imposter_count = roundi(new_sheep_count * randf_range(0.4, 0.6))

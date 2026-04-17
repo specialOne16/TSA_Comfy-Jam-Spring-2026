@@ -132,12 +132,15 @@ texture_normal = ExtResource("1_wl4j8")
 
 [node name="BaaahA" type="AudioStreamPlayer" parent="." unique_id=796747411]
 stream = ExtResource("18_iir77")
+volume_db = -50.0
 
 [node name="BaaahB" type="AudioStreamPlayer" parent="." unique_id=741041476]
 stream = ExtResource("19_enykk")
+volume_db = -50.0
 
 [node name="BaaahC" type="AudioStreamPlayer" parent="." unique_id=1971067579]
 stream = ExtResource("20_2s3ch")
+volume_db = -50.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

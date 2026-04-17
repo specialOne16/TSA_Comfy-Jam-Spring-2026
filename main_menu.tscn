@@ -31,6 +31,7 @@ text = "Play"
 
 [node name="Menu" type="AudioStreamPlayer" parent="." unique_id=771884507]
 stream = ExtResource("2_7vrkn")
+volume_db = -10.0
 autoplay = true
 
 [node name="Click" type="AudioStreamPlayer" parent="." unique_id=1077784912]

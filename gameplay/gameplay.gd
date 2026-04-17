@@ -15,9 +15,6 @@ const LOSE = ["lose_1", "lose_2"]
 @onready var first_mistake: TextureRect = $Control/FirstMistake
 @onready var second_mistake: TextureRect = $Control/SecondMistake
 
-@onready var wave_stat_label: Label = $Control/VBoxContainer/WaveStatLabel
-@onready var next_wave_button: Button = $Control/NextWaveButton
-@onready var restart_wave_button: Button = $Control/RestartWaveButton
 @onready var animated_sprite_2d: AnimatedSprite2D:
 	get():
 		if animated_sprite_2d == null:
@@ -44,8 +41,6 @@ var imposter_tossed = 0
 
 func _ready() -> void:
 	gate_field.inspect.connect(_try_inspect)
-	next_wave_button.visible = false
-	restart_wave_button.visible = false
 	
 	first_mistake.visible = false
 	second_mistake.visible = false
@@ -74,9 +69,6 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 	if follow_rule_count >= 2: real_sheep_tossed += 1
 	else: imposter_tossed += 1
 	
-	first_mistake.visible = real_sheep_tossed >= 1
-	second_mistake.visible = real_sheep_tossed >= 2
-	
 	animated_sprite_2d.visible = true
 	var toss = TOSS.pick_random()
 	animated_sprite_2d.play(toss)
@@ -86,6 +78,9 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 	await animated_sprite_2d.animation_finished
 	animation_playing = false
 	animated_sprite_2d.visible = false
+	
+	first_mistake.visible = real_sheep_tossed >= 1
+	second_mistake.visible = real_sheep_tossed >= 2
 	
 	if imposter_tossed < imposter_count:
 		if float(imposter_tossed) / imposter_count >= GATE_OPEN_TRIGGER[gate_opened]:
@@ -103,7 +98,8 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 		animation_playing = false
 		animated_sprite_2d.visible = false
 	
-		next_wave_button.visible = true
+		Globals.wave += 1
+		get_tree().reload_current_scene()
 	
 	if real_sheep_tossed > 2:
 		gate_field.inspect.disconnect(_try_inspect)
@@ -115,20 +111,9 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 		animation_playing = false
 		animated_sprite_2d.visible = false
 		
-		restart_wave_button.visible = true
+		get_tree().reload_current_scene()
 
 func _try_inspect(s): if not animation_playing: inspection.inspect(s)
-
-func _on_next_wave_button_pressed() -> void:
-	Globals.wave += 1
-	click.play()
-	get_tree().reload_current_scene()
-
-
-func _on_restart_wave_button_pressed() -> void:
-	click.play()
-	get_tree().reload_current_scene()
-
 
 func _on_gameplay_finished() -> void:
 	gameplay.play()

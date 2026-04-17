@@ -16,7 +16,6 @@ const SHORT_TAIL_TRANSPARENT = preload("uid://cpvgtxg382kih")
 signal sheep_tossed(sheep: Sheep)
 
 @onready var color_rect: ColorRect = $Control/ColorRect
-@onready var debug_data: Label = $Control/DebugData
 @onready var left_button: TextureButton = $Control/LeftButton
 @onready var right_button: TextureButton = $Control/RightButton
 @onready var h_box_container: HBoxContainer = $Control/HBoxContainer
@@ -45,15 +44,12 @@ func setup_button():
 		left_button.visible = false
 		right_button.visible = false
 		h_box_container.visible = false
-		debug_data.text = ""
 		pov = Pov.SIDE
 		inspection_status.texture = null
 		return
 	
 	match pov:
 		Pov.SIDE: 
-			debug_data.text = "Showing side sheep, wool spot is %s" % Sheep.WoolSpot.keys()[inspecting_sheep.wool_spot]
-			
 			match inspecting_sheep.wool_spot:
 				Sheep.WoolSpot.BROWN: inspection_status.texture = BROWN_SPOTS_TRANSPARENT
 				Sheep.WoolSpot.BLACK: inspection_status.texture = BLACK_SPOTS_TRANSPARENT
@@ -62,9 +58,7 @@ func setup_button():
 			left_button.visible = true
 			right_button.visible = true
 		
-		Pov.BACK: 
-			debug_data.text = "Showing back sheep, tail type is %s" % Sheep.TailType.keys()[inspecting_sheep.tail_type]
-			
+		Pov.BACK:
 			match inspecting_sheep.tail_type:
 				Sheep.TailType.NOTHING: inspection_status.texture = NO_TAIL_TRANSPARENT
 				Sheep.TailType.LONG: inspection_status.texture = LONG_TAIL_TRANSPARENT
@@ -74,7 +68,6 @@ func setup_button():
 			right_button.visible = true
 		
 		Pov.FACE: 
-			debug_data.text = "Showing face sheep, neck tag is %s" % Sheep.NeckTag.keys()[inspecting_sheep.neck_tag]
 			checking_tag.play()
 			
 			match inspecting_sheep.neck_tag:

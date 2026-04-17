@@ -131,7 +131,7 @@ func _initialize_sheep(sheep: Sheep, real_sheep: bool, wool_spot_rule: Sheep.Woo
 	
 	assert(follow_rule_count == 0)
 	
-	if not real_sheep: sheep.modulate = Color.RED
+	#if not real_sheep: sheep.modulate = Color.RED
 
 func _generate_spawn_position(spot: int) -> Vector2:
 	var actual_spot = spot_mapping[spot]

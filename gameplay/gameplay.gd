@@ -22,6 +22,8 @@ const LOSE = ["lose_1", "lose_2"]
 
 @onready var gameplay: AudioStreamPlayer = $Gameplay
 @onready var click: AudioStreamPlayer = $Click
+@onready var basketball_sheep: AudioStreamPlayer = $BasketballSheep
+@onready var soccer_sheep: AudioStreamPlayer = $SoccerSheep
 
 var wool_spot_rule: Sheep.WoolSpot
 var neck_tag_rule: Sheep.NeckTag
@@ -70,7 +72,10 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 	wave_stat_label.text = "Tossed: %d real sheep, %d imposter" % [real_sheep_tossed, imposter_tossed]
 	
 	animated_sprite_2d.visible = true
-	animated_sprite_2d.play(TOSS.pick_random())
+	var toss = TOSS.pick_random()
+	animated_sprite_2d.play(toss)
+	if toss == "kick": soccer_sheep.play()
+	elif toss == "shoot": basketball_sheep.play()
 	animation_playing = true
 	await animated_sprite_2d.animation_finished
 	animation_playing = false

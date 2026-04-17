@@ -13,6 +13,7 @@ signal gate_entered
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var baa: Array[AudioStreamPlayer] = [$BaaahA, $BaaahB, $BaaahC]
 
 var remaining_time: float = 0
 var inspecting: bool = false
@@ -91,4 +92,5 @@ func _on_texture_button_pressed() -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	var anim = ANIM.pick_random()
+	if anim == "baa": baa.pick_random().play()
 	animated_sprite_2d.play(anim)

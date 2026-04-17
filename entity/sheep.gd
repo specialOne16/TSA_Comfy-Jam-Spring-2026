@@ -6,6 +6,7 @@ enum NeckTag { RED, BLUE, GREEN }
 enum TailType { NOTHING, LONG, SHORT }
 
 signal inspect(sheep: Sheep)
+signal gate_entered
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
@@ -44,6 +45,8 @@ func enter_gate(spawn_spot: int):
 		func():
 			set_collision_mask_value(5, true)
 			inspectable = true
+			navigation_agent_2d.target_position = Vector2.ZERO
+			gate_entered.emit()
 	)
 	set_collision_layer_value(1, false)
 	set_collision_mask_value(1, false)

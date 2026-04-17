@@ -5,6 +5,7 @@ const SHEEP = preload("uid://c6fa3ik7hdw4n")
 
 @onready var open_gate_ui: TextureRect = $OpenGate
 @onready var close_gate_ui: TextureRect = $CloseGate
+@onready var close_gate_timer: Timer = $CloseGateTimer
 
 var spot_mapping: Array[int]
 var real_sheep_store: Array[Sheep]
@@ -75,6 +76,7 @@ func open_gate(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, tai
 		var imposter: Sheep = SHEEP.instantiate()
 		imposter.enter_gate(spawn_spot)
 		imposter.inspect.connect(_inspect_sheep)
+		imposter.gate_entered.connect(close_gate_timer.start)
 		_initialize_sheep(imposter, false, wool_spot_rule, neck_tag_rule, tail_type_rule)
 		get_parent().add_child.call_deferred(imposter)
 		
@@ -84,6 +86,7 @@ func open_gate(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, tai
 		var real_sheep: Sheep = SHEEP.instantiate()
 		real_sheep.enter_gate(spawn_spot)
 		real_sheep.inspect.connect(_inspect_sheep)
+		real_sheep.gate_entered.connect(close_gate_timer.start)
 		_initialize_sheep(real_sheep, true, wool_spot_rule, neck_tag_rule, tail_type_rule)
 		get_parent().add_child.call_deferred(real_sheep)
 		
@@ -133,3 +136,7 @@ func _generate_spawn_position(spot: int) -> Vector2:
 	var y_pos = 832 + (actual_spot / 5) * 102.4 + randf_range(-25.6, 25.6) / 2 + 51.2
 	var x_pos = 1728 + (actual_spot % 5) * 166.4 + randf_range(-41.6, 41.6) / 2 + 83.2
 	return Vector2(x_pos, y_pos)
+
+
+func _on_close_gate_timer_timeout() -> void:
+	close_gate()

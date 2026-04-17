@@ -20,6 +20,9 @@ const LOSE = ["lose_1", "lose_2"]
 			animated_sprite_2d.z_index = 5
 		return animated_sprite_2d
 
+@onready var gameplay: AudioStreamPlayer = $Gameplay
+@onready var click: AudioStreamPlayer = $Click
+
 var wool_spot_rule: Sheep.WoolSpot
 var neck_tag_rule: Sheep.NeckTag
 var tail_type_rule: Sheep.TailType
@@ -107,8 +110,14 @@ func _try_inspect(s): if not animation_playing: inspection.inspect(s)
 
 func _on_next_wave_button_pressed() -> void:
 	Globals.wave += 1
+	click.play()
 	get_tree().reload_current_scene()
 
 
 func _on_restart_wave_button_pressed() -> void:
+	click.play()
 	get_tree().reload_current_scene()
+
+
+func _on_gameplay_finished() -> void:
+	gameplay.play()

@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://c34m5njg2diw7" path="res://assets/UI/Arrow left.png" id="2_cxf6o"]
 [ext_resource type="Texture2D" uid="uid://cxtyysmqw5at4" path="res://assets/UI/Right arrow.png" id="3_1gawa"]
 [ext_resource type="Texture2D" uid="uid://ci778t5n7ueqc" path="res://assets/Inspection Windows/Spots/BlackSpots_Transparent.png" id="4_1gawa"]
+[ext_resource type="AudioStream" uid="uid://ccat3qp8mu0yr" path="res://audio/click.wav" id="5_f0owt"]
+[ext_resource type="AudioStream" uid="uid://n1e3dkhjjovm" path="res://audio/Checking_Tag.wav" id="6_ih2dt"]
+[ext_resource type="AudioStream" uid="uid://b08h2d2wcgf8e" path="res://audio/Rotating_Sheep.wav" id="7_8uxue"]
 
 [node name="Inspection" type="Node2D" unique_id=1021310556]
 script = ExtResource("1_2td1x")
@@ -102,7 +105,15 @@ offset_bottom = 40.0
 mouse_filter = 2
 texture = ExtResource("4_1gawa")
 
-[connection signal="mouse_entered" from="Control/LeftButton" to="." method="_on_left_button_mouse_entered"]
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=1328616999]
+stream = ExtResource("5_f0owt")
+
+[node name="CheckingTag" type="AudioStreamPlayer" parent="." unique_id=2139813732]
+stream = ExtResource("6_ih2dt")
+
+[node name="RotatingSheep" type="AudioStreamPlayer" parent="." unique_id=1607739635]
+stream = ExtResource("7_8uxue")
+
 [connection signal="pressed" from="Control/LeftButton" to="." method="_on_left_button_pressed"]
 [connection signal="pressed" from="Control/RightButton" to="." method="_on_right_button_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/TossButton" to="." method="_on_toss_button_pressed"]

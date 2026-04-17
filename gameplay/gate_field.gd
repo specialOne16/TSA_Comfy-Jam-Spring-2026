@@ -6,6 +6,7 @@ const SHEEP = preload("uid://c6fa3ik7hdw4n")
 @onready var open_gate_ui: TextureRect = $OpenGate
 @onready var close_gate_ui: TextureRect = $CloseGate
 @onready var close_gate_timer: Timer = $CloseGateTimer
+@onready var fence: AudioStreamPlayer = $Fence
 
 var spot_mapping: Array[int]
 var real_sheep_store: Array[Sheep]
@@ -56,6 +57,7 @@ func spawn_sheep(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, t
 func open_gate(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, tail_type_rule: Sheep.TailType):
 	open_gate_ui.visible = true
 	close_gate_ui.visible = false
+	fence.play()
 	
 	var should_exit_gate = randi_range(0, 1) == 0
 	if should_exit_gate or true:
@@ -94,6 +96,7 @@ func open_gate(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, tai
 		real_sheep_store.append(real_sheep)
 
 func close_gate():
+	fence.play()
 	open_gate_ui.visible = false
 	close_gate_ui.visible = true
 

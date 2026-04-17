@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cogbw76y22ewe" path="res://assets/Bg_Compressed.png" id="2_vcysg"]
 [ext_resource type="Texture2D" uid="uid://bg5cx45v0k5gg" path="res://assets/Gate/OpenGate.png" id="3_tyqgv"]
 [ext_resource type="Texture2D" uid="uid://csxr3as7al2ya" path="res://assets/Gate/ClosedGate.png" id="4_x4su0"]
+[ext_resource type="AudioStream" uid="uid://bj313if8i5ilq" path="res://audio/Fence.wav" id="5_tyqgv"]
 
 [node name="GateField" type="Node2D" unique_id=1050532754]
 script = ExtResource("1_htcj0")
@@ -38,5 +39,8 @@ texture = ExtResource("4_x4su0")
 [node name="CloseGateTimer" type="Timer" parent="." unique_id=413629895]
 wait_time = 5.0
 one_shot = true
+
+[node name="Fence" type="AudioStreamPlayer" parent="." unique_id=1985456591]
+stream = ExtResource("5_tyqgv")
 
 [connection signal="timeout" from="CloseGateTimer" to="." method="_on_close_gate_timer_timeout"]

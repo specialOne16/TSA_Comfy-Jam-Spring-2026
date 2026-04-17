@@ -42,7 +42,7 @@ func enter_gate(spawn_spot: int):
 	await ready
 	
 	@warning_ignore("integer_division")
-	navigation_agent_2d.target_position = Vector2(spawn_spot / 5 * 166.4 + 1778, spawn_spot % 5 * 102.4 + 882)
+	navigation_agent_2d.target_position = Vector2(2000 + randf_range(0, 560), randf_range(832, 1280))
 	navigation_agent_2d.target_desired_distance = 50
 	navigation_agent_2d.target_reached.connect(
 		func():

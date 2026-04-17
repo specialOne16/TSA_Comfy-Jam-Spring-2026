@@ -22,6 +22,10 @@ signal sheep_tossed(sheep: Sheep)
 @onready var h_box_container: HBoxContainer = $Control/HBoxContainer
 @onready var inspection_status: TextureRect = $Control/InspectionStatus
 
+@onready var click: AudioStreamPlayer = $Click
+@onready var checking_tag: AudioStreamPlayer = $CheckingTag
+@onready var rotating_sheep: AudioStreamPlayer = $RotatingSheep
+
 var inspecting_sheep: Sheep
 var pov := Pov.SIDE
 
@@ -71,6 +75,7 @@ func setup_button():
 		
 		Pov.FACE: 
 			debug_data.text = "Showing face sheep, neck tag is %s" % Sheep.NeckTag.keys()[inspecting_sheep.neck_tag]
+			checking_tag.play()
 			
 			match inspecting_sheep.neck_tag:
 				Sheep.NeckTag.RED: inspection_status.texture = RED_TAG_TRANSPARENT
@@ -88,7 +93,9 @@ func _ready() -> void:
 
 
 func _on_left_button_pressed() -> void:
-	print("masuk")
+	click.play()
+	rotating_sheep.play()
+	
 	match pov:
 		Pov.SIDE: pov = Pov.BACK
 		Pov.BACK: pass
@@ -98,6 +105,9 @@ func _on_left_button_pressed() -> void:
 
 
 func _on_right_button_pressed() -> void:
+	click.play()
+	rotating_sheep.play()
+	
 	match pov:
 		Pov.SIDE: pov = Pov.FACE
 		Pov.BACK: pov = Pov.SIDE
@@ -107,6 +117,7 @@ func _on_right_button_pressed() -> void:
 
 
 func _on_toss_button_pressed() -> void:
+	click.play()
 	sheep_tossed.emit(inspecting_sheep)
 	inspecting_sheep.queue_free()
 	inspecting_sheep = null
@@ -114,12 +125,9 @@ func _on_toss_button_pressed() -> void:
 
 
 func _on_keep_button_pressed() -> void:
+	click.play()
 	color_rect.color = Color.hex(0x00000000)
 	inspecting_sheep.un_inspect()
 	
 	inspecting_sheep = null
 	setup_button()
-
-
-func _on_left_button_mouse_entered() -> void:
-	print("halo")

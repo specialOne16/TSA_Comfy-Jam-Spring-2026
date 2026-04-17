@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://d0slxx72bqhb3"]
 
 [ext_resource type="Script" uid="uid://buumi2wm72y7q" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="AudioStream" uid="uid://jn5rqo83gsw1" path="res://audio/menu.mp3" id="2_7vrkn"]
+[ext_resource type="AudioStream" uid="uid://ccat3qp8mu0yr" path="res://audio/click.wav" id="3_fu7sn"]
 
 [node name="MainMenu" type="Control" unique_id=1629698840]
 layout_mode = 3
@@ -27,4 +29,12 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 42
 text = "Play"
 
+[node name="Menu" type="AudioStreamPlayer" parent="." unique_id=771884507]
+stream = ExtResource("2_7vrkn")
+autoplay = true
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=1077784912]
+stream = ExtResource("3_fu7sn")
+
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="finished" from="Menu" to="." method="_on_menu_finished"]

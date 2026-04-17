@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://bub08an1ct4m2" path="res://gameplay/gameplay.gd" id="1_ueusv"]
 [ext_resource type="PackedScene" uid="uid://bvckg0bj6wqqt" path="res://gameplay/inspection.tscn" id="2_ueusv"]
 [ext_resource type="Texture2D" uid="uid://bs8x151w22jvf" path="res://assets/UI/TSA_Board.png" id="4_ktb3l"]
+[ext_resource type="AudioStream" uid="uid://d0a46icv2xy68" path="res://audio/gameplay.mp3" id="5_gvicd"]
+[ext_resource type="AudioStream" uid="uid://ccat3qp8mu0yr" path="res://audio/click.wav" id="6_7pdct"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ueusv"]
 vertices = PackedVector2Array(2550, 1273.2188, 2397.7969, 1334, 1610, 1334, 1610, 1206, 1671.5313, 841.02344, 2112, 778.10156, 2550, 840.6719, -138, 1206, -138, 1398, -2550, 1398, -2550, 10, -138, 10, -138, 1034, 1607.2109, 1034)
@@ -90,9 +92,14 @@ offset_bottom = 432.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 42
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1739930839]
-offset = Vector2(1280, 740)
+[node name="Gameplay" type="AudioStreamPlayer" parent="." unique_id=1021387425]
+stream = ExtResource("5_gvicd")
+autoplay = true
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=611179851]
+stream = ExtResource("6_7pdct")
 
 [connection signal="sheep_tossed" from="Inspection" to="." method="_on_inspection_sheep_tossed"]
 [connection signal="pressed" from="Control/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="Control/RestartWaveButton" to="." method="_on_restart_wave_button_pressed"]
+[connection signal="finished" from="Gameplay" to="." method="_on_gameplay_finished"]

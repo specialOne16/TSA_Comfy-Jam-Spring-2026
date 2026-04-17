@@ -8,7 +8,13 @@ const LOSE = ["lose_1", "lose_2"]
 @onready var gate_field: GateField = $GateField
 @onready var inspection: Inspection = $Inspection
 
-@onready var tsa_rule_label: Label = $Control/TsaBoard/TsaRuleLabel
+@onready var wool_spot_rule_label: Label = $Control/TsaBoard/VBoxContainer/WoolSpotRule
+@onready var neck_tag_rule_label: Label = $Control/TsaBoard/VBoxContainer/NeckTagRule
+@onready var tail_type_rule_label: Label = $Control/TsaBoard/VBoxContainer/TailTypeRule
+
+@onready var first_mistake: TextureRect = $Control/FirstMistake
+@onready var second_mistake: TextureRect = $Control/SecondMistake
+
 @onready var wave_stat_label: Label = $Control/VBoxContainer/WaveStatLabel
 @onready var next_wave_button: Button = $Control/NextWaveButton
 @onready var restart_wave_button: Button = $Control/RestartWaveButton
@@ -41,20 +47,19 @@ func _ready() -> void:
 	next_wave_button.visible = false
 	restart_wave_button.visible = false
 	
+	first_mistake.visible = false
+	second_mistake.visible = false
+	
 	wool_spot_rule = Sheep.WoolSpot.values().pick_random()
 	neck_tag_rule = Sheep.NeckTag.values().pick_random()
 	tail_type_rule = Sheep.TailType.values().pick_random()
 	
 	var sheep = gate_field.spawn_sheep(wool_spot_rule, neck_tag_rule, tail_type_rule)
 	imposter_count = sheep.imposter_count
-	tsa_rule_label.text = "Wave: %d (%d sheeps, %d imposters)\nTSA Rule: Wool Spot = %s   Neck Tag = %s   Tail Type = %s" % [
-		Globals.wave,
-		sheep.total_sheep, 
-		sheep.imposter_count,
-		Sheep.WoolSpot.keys()[wool_spot_rule],
-		Sheep.NeckTag.keys()[neck_tag_rule],
-		Sheep.TailType.keys()[tail_type_rule]
-	]
+	
+	wool_spot_rule_label.text = "Wool Spot = %s" % Sheep.WoolSpot.keys()[wool_spot_rule]
+	neck_tag_rule_label.text = "Neck Tag = %s" % Sheep.NeckTag.keys()[neck_tag_rule]
+	tail_type_rule_label.text = "Tail Type = %s" % Sheep.TailType.keys()[tail_type_rule]
 	
 	ResourceLoader.load_threaded_request("uid://b5lo1jvsbpgwb")
 
@@ -69,7 +74,8 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 	if follow_rule_count >= 2: real_sheep_tossed += 1
 	else: imposter_tossed += 1
 	
-	wave_stat_label.text = "Tossed: %d real sheep, %d imposter" % [real_sheep_tossed, imposter_tossed]
+	first_mistake.visible = real_sheep_tossed >= 1
+	second_mistake.visible = real_sheep_tossed >= 2
 	
 	animated_sprite_2d.visible = true
 	var toss = TOSS.pick_random()
@@ -99,7 +105,7 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 	
 		next_wave_button.visible = true
 	
-	if real_sheep_tossed >= 2:
+	if real_sheep_tossed > 2:
 		gate_field.inspect.disconnect(_try_inspect)
 		
 		animated_sprite_2d.visible = true

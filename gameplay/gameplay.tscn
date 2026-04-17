@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ck5yd7gjcd6de" path="res://gameplay/gate_field.tscn" id="1_41n4r"]
 [ext_resource type="Script" uid="uid://bub08an1ct4m2" path="res://gameplay/gameplay.gd" id="1_ueusv"]
 [ext_resource type="PackedScene" uid="uid://bvckg0bj6wqqt" path="res://gameplay/inspection.tscn" id="2_ueusv"]
-[ext_resource type="Texture2D" uid="uid://bs8x151w22jvf" path="res://assets/UI/TSA_Board.png" id="4_ktb3l"]
+[ext_resource type="Texture2D" uid="uid://dgpxbjj3jn81a" path="res://assets/UI/NewTSA_UI.png" id="4_nimes"]
 [ext_resource type="AudioStream" uid="uid://d0a46icv2xy68" path="res://audio/gameplay.mp3" id="5_gvicd"]
 [ext_resource type="Texture2D" uid="uid://bfs30sq8vbthj" path="res://assets/UI/FirstMistake_UI.png" id="5_nimes"]
 [ext_resource type="Texture2D" uid="uid://tyai66q37lq7" path="res://assets/UI/SecondMistake_UI.png" id="6_2okcp"]
@@ -67,34 +67,39 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 42
 text = "Restart wave"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1989112351]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 120.0
-
-[node name="WaveStatLabel" type="Label" parent="Control/VBoxContainer" unique_id=1136107404]
-layout_mode = 2
-theme_override_font_sizes/font_size = 42
-
 [node name="TsaBoard" type="TextureRect" parent="Control" unique_id=516922696]
 layout_mode = 0
-offset_left = -64.0
-offset_top = -128.0
-offset_right = 576.0
-offset_bottom = 1152.0
+offset_bottom = 640.0
 mouse_filter = 2
-texture = ExtResource("4_ktb3l")
-expand_mode = 4
-stretch_mode = 4
+texture = ExtResource("4_nimes")
 
-[node name="TsaRuleLabel" type="Label" parent="Control/TsaBoard" unique_id=1588890191]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TsaBoard" unique_id=384467820]
 layout_mode = 0
-offset_left = 138.0
-offset_top = 312.0
-offset_right = 520.0
-offset_bottom = 432.0
+offset_left = 206.0
+offset_top = 192.0
+offset_right = 669.0
+offset_bottom = 469.0
+
+[node name="WoolSpotRule" type="Label" parent="Control/TsaBoard/VBoxContainer" unique_id=1588890191]
+layout_mode = 2
+size_flags_vertical = 6
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 42
+text = "Wool Spot"
+
+[node name="NeckTagRule" type="Label" parent="Control/TsaBoard/VBoxContainer" unique_id=1294249935]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
+text = "Neck Tag"
+
+[node name="TailTypeRule" type="Label" parent="Control/TsaBoard/VBoxContainer" unique_id=212155382]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
+text = "Tail Type"
 
 [node name="FirstMistake" type="TextureRect" parent="Control" unique_id=272775063]
 layout_mode = 0

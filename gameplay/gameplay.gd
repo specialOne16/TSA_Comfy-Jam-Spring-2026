@@ -1,14 +1,24 @@
 extends Node2D
 
 const GATE_OPEN_TRIGGER = [0.4, 0.6, 0.8]
+const TOSS = ["kick", "shoot"]
+const WIN = ["win_1", "win_2"]
+const LOSE = ["lose_1", "lose_2"]
 
 @onready var gate_field: GateField = $GateField
 @onready var inspection: Inspection = $Inspection
 
-@onready var tsa_rule_label: Label = $Control/VBoxContainer/TsaRuleLabel
+@onready var tsa_rule_label: Label = $Control/TsaBoard/TsaRuleLabel
 @onready var wave_stat_label: Label = $Control/VBoxContainer/WaveStatLabel
 @onready var next_wave_button: Button = $Control/NextWaveButton
 @onready var restart_wave_button: Button = $Control/RestartWaveButton
+@onready var animated_sprite_2d: AnimatedSprite2D:
+	get():
+		if animated_sprite_2d == null:
+			animated_sprite_2d = ResourceLoader.load_threaded_get("uid://b5lo1jvsbpgwb").instantiate()
+			add_child(animated_sprite_2d)
+			animated_sprite_2d.z_index = 5
+		return animated_sprite_2d
 
 var wool_spot_rule: Sheep.WoolSpot
 var neck_tag_rule: Sheep.NeckTag
@@ -39,6 +49,8 @@ func _ready() -> void:
 		Sheep.NeckTag.keys()[neck_tag_rule],
 		Sheep.TailType.keys()[tail_type_rule]
 	]
+	
+	ResourceLoader.load_threaded_request("uid://b5lo1jvsbpgwb")
 
 
 func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
@@ -53,17 +65,35 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 	
 	wave_stat_label.text = "Tossed: %d real sheep, %d imposter" % [real_sheep_tossed, imposter_tossed]
 	
+	animated_sprite_2d.visible = true
+	animated_sprite_2d.play(TOSS.pick_random())
+	await animated_sprite_2d.animation_finished
+	animated_sprite_2d.visible = false
+	
 	if imposter_tossed < imposter_count:
 		if float(imposter_tossed) / imposter_count >= GATE_OPEN_TRIGGER[gate_opened]:
 			gate_opened += 1
 			gate_field.open_gate(wool_spot_rule, neck_tag_rule, tail_type_rule)
+			
 	
 	if imposter_tossed >= imposter_count:
 		gate_field.inspect.disconnect(inspection.inspect)
+		
+		animated_sprite_2d.visible = true
+		animated_sprite_2d.play(WIN.pick_random())
+		await animated_sprite_2d.animation_finished
+		animated_sprite_2d.visible = false
+	
 		next_wave_button.visible = true
 	
 	if real_sheep_tossed >= 2:
 		gate_field.inspect.disconnect(inspection.inspect)
+		
+		animated_sprite_2d.visible = true
+		animated_sprite_2d.play(LOSE.pick_random())
+		await animated_sprite_2d.animation_finished
+		animated_sprite_2d.visible = false
+		
 		restart_wave_button.visible = true
 
 

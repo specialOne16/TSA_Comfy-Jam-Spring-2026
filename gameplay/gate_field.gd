@@ -3,6 +3,9 @@ class_name GateField
 
 const SHEEP = preload("uid://c6fa3ik7hdw4n")
 
+@onready var open_gate_ui: TextureRect = $OpenGate
+@onready var close_gate_ui: TextureRect = $CloseGate
+
 var spot_mapping: Array[int]
 var real_sheep_store: Array[Sheep]
 
@@ -50,6 +53,9 @@ func spawn_sheep(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, t
 	}
 
 func open_gate(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, tail_type_rule: Sheep.TailType):
+	open_gate_ui.visible = true
+	close_gate_ui.visible = false
+	
 	var should_exit_gate = randi_range(0, 1) == 0
 	if should_exit_gate or true:
 		var exit_gate_amount = randi_range(1, 4)
@@ -83,6 +89,10 @@ func open_gate(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, tai
 		
 		spawn_spot += 1
 		real_sheep_store.append(real_sheep)
+
+func close_gate():
+	open_gate_ui.visible = false
+	close_gate_ui.visible = true
 
 func _inspect_sheep(sheep: Sheep): inspect.emit(sheep)
 
@@ -120,6 +130,6 @@ func _initialize_sheep(sheep: Sheep, real_sheep: bool, wool_spot_rule: Sheep.Woo
 func _generate_spawn_position(spot: int) -> Vector2:
 	var actual_spot = spot_mapping[spot]
 	@warning_ignore("integer_division")
-	var y_pos = (actual_spot / 5) * 256 + randf_range(-128, 128) / 2 + 128
-	var x_pos = 1280 + (actual_spot % 5) * 256 + randf_range(-128, 128) / 2 + 128
+	var y_pos = 832 + (actual_spot / 5) * 102.4 + randf_range(-25.6, 25.6) / 2 + 51.2
+	var x_pos = 1728 + (actual_spot % 5) * 166.4 + randf_range(-41.6, 41.6) / 2 + 83.2
 	return Vector2(x_pos, y_pos)

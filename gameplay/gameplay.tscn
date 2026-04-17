@@ -3,11 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://ck5yd7gjcd6de" path="res://gameplay/gate_field.tscn" id="1_41n4r"]
 [ext_resource type="Script" uid="uid://bub08an1ct4m2" path="res://gameplay/gameplay.gd" id="1_ueusv"]
 [ext_resource type="PackedScene" uid="uid://bvckg0bj6wqqt" path="res://gameplay/inspection.tscn" id="2_ueusv"]
+[ext_resource type="Texture2D" uid="uid://bs8x151w22jvf" path="res://assets/UI/TSA_Board.png" id="4_ktb3l"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ueusv"]
-vertices = PackedVector2Array(1354, 650, 1354, 74, 2486, 74, 2486, 1334, 1354, 1334, 1354, 822, -138, 650, -138, 822, -138, 1398, -2550, 1398, -2550, 10, -138, 10)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5), PackedInt32Array(0, 3, 5), PackedInt32Array(6, 0, 5, 7), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(6, 7, 10), PackedInt32Array(11, 6, 10)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-2560, 0, -128, 0, -128, 640, 1344, 640, 1344, 64, 2496, 64, 2496, 1344, 1344, 1344, 1344, 832, -128, 832, -128, 1408, -2560, 1408)])
+vertices = PackedVector2Array(2550, 1273.2188, 2397.7969, 1334, 1610, 1334, 1610, 1206, 1671.5313, 841.02344, 2112, 778.10156, 2550, 840.6719, -138, 1206, -138, 1398, -2550, 1398, -2550, 10, -138, 10, -138, 1034, 1607.2109, 1034)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(10, 11, 12), PackedInt32Array(7, 10, 12), PackedInt32Array(7, 12, 13, 3), PackedInt32Array(3, 13, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-2560, 0, -128, 0, -128, 1024, 1600, 1024, 1664, 832, 2112, 768, 2560, 832, 2560, 1280, 2399.7258, 1344, 1600, 1344, 1600, 1216, -128, 1216, -128, 1408, -2560, 1408)])
 
 [node name="Gameplay" type="Node2D" unique_id=1278754783]
 script = ExtResource("1_ueusv")
@@ -26,19 +27,6 @@ anchors_preset = 0
 offset_right = 2560.0
 offset_bottom = 1440.0
 mouse_filter = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1989112351]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TsaRuleLabel" type="Label" parent="Control/VBoxContainer" unique_id=1588890191]
-layout_mode = 2
-theme_override_font_sizes/font_size = 42
-
-[node name="WaveStatLabel" type="Label" parent="Control/VBoxContainer" unique_id=1136107404]
-layout_mode = 2
-theme_override_font_sizes/font_size = 42
 
 [node name="NextWaveButton" type="Button" parent="Control" unique_id=1362721188]
 layout_mode = 1
@@ -71,6 +59,35 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 42
 text = "Restart wave"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1989112351]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 120.0
+
+[node name="WaveStatLabel" type="Label" parent="Control/VBoxContainer" unique_id=1136107404]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+
+[node name="TsaBoard" type="TextureRect" parent="Control" unique_id=516922696]
+layout_mode = 0
+offset_left = -64.0
+offset_top = -128.0
+offset_right = 576.0
+offset_bottom = 1152.0
+mouse_filter = 2
+texture = ExtResource("4_ktb3l")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="TsaRuleLabel" type="Label" parent="Control/TsaBoard" unique_id=1588890191]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 312.0
+offset_right = 520.0
+offset_bottom = 432.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
 
 [connection signal="sheep_tossed" from="Inspection" to="." method="_on_inspection_sheep_tossed"]
 [connection signal="pressed" from="Control/NextWaveButton" to="." method="_on_next_wave_button_pressed"]

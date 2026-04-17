@@ -3,7 +3,7 @@ class_name Sheep
 
 enum WoolSpot { BROWN, BLACK, NOTHING }
 enum NeckTag { RED, BLUE, GREEN }
-enum TailType { FAT, LONG, SHORT }
+enum TailType { NOTHING, LONG, SHORT }
 
 signal inspect(sheep: Sheep)
 

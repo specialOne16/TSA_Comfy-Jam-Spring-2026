@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://ck5yd7gjcd6de"]
 
 [ext_resource type="Script" uid="uid://8sp330kpq1ml" path="res://gameplay/gate_field.gd" id="1_htcj0"]
+[ext_resource type="Texture2D" uid="uid://cogbw76y22ewe" path="res://assets/Bg_Compressed.png" id="2_vcysg"]
+[ext_resource type="Texture2D" uid="uid://bg5cx45v0k5gg" path="res://assets/Gate/OpenGate.png" id="3_tyqgv"]
+[ext_resource type="Texture2D" uid="uid://csxr3as7al2ya" path="res://assets/Gate/ClosedGate.png" id="4_x4su0"]
 
 [node name="GateField" type="Node2D" unique_id=1050532754]
 script = ExtResource("1_htcj0")
@@ -8,7 +11,26 @@ script = ExtResource("1_htcj0")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=259527872]
 collision_layer = 16
 collision_mask = 0
+collision_priority = 10.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=558927651]
 build_mode = 1
-polygon = PackedVector2Array(1280, 0, 2560, 0, 2560, 1440, 1280, 1440)
+polygon = PackedVector2Array(1600, 1088, 1728, 832, 1984, 768, 2368, 768, 2560, 832, 2560, 1344, 2368, 1408, 1792, 1408, 1600, 1344)
+
+[node name="Background" type="TextureRect" parent="." unique_id=2067478771]
+z_index = -4
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_vcysg")
+
+[node name="OpenGate" type="TextureRect" parent="." unique_id=546316233]
+z_index = -3
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_tyqgv")
+
+[node name="CloseGate" type="TextureRect" parent="." unique_id=2013153778]
+z_index = -3
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_x4su0")

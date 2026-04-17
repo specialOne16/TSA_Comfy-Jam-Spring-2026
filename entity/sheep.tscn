@@ -20,9 +20,6 @@ texture_normal = ExtResource("1_wl4j8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=172810179]
 shape = SubResource("CircleShape2D_mn4pi")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=908290757]
-texture = ExtResource("1_wl4j8")
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=893425560]
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

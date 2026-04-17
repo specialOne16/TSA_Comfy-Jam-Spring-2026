@@ -11,6 +11,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), Packe
 outlines = Array[PackedVector2Array]([PackedVector2Array(-2560, 0, -128, 0, -128, 1024, 1600, 1024, 1664, 832, 2112, 768, 2560, 832, 2560, 1280, 2399.7258, 1344, 1600, 1344, 1600, 1216, -128, 1216, -128, 1408, -2560, 1408)])
 
 [node name="Gameplay" type="Node2D" unique_id=1278754783]
+y_sort_enabled = true
 script = ExtResource("1_ueusv")
 
 [node name="GateField" parent="." unique_id=1050532754 instance=ExtResource("1_41n4r")]
@@ -88,6 +89,9 @@ offset_right = 520.0
 offset_bottom = 432.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 42
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1739930839]
+offset = Vector2(1280, 740)
 
 [connection signal="sheep_tossed" from="Inspection" to="." method="_on_inspection_sheep_tossed"]
 [connection signal="pressed" from="Control/NextWaveButton" to="." method="_on_next_wave_button_pressed"]

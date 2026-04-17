@@ -26,12 +26,13 @@ var tail_type_rule: Sheep.TailType
 
 var imposter_count = 0
 var gate_opened = 0
+var animation_playing = false
 
 var real_sheep_tossed = 0
 var imposter_tossed = 0
 
 func _ready() -> void:
-	gate_field.inspect.connect(inspection.inspect)
+	gate_field.inspect.connect(_try_inspect)
 	next_wave_button.visible = false
 	restart_wave_button.visible = false
 	
@@ -67,7 +68,9 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 	
 	animated_sprite_2d.visible = true
 	animated_sprite_2d.play(TOSS.pick_random())
+	animation_playing = true
 	await animated_sprite_2d.animation_finished
+	animation_playing = false
 	animated_sprite_2d.visible = false
 	
 	if imposter_tossed < imposter_count:
@@ -77,25 +80,30 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 			
 	
 	if imposter_tossed >= imposter_count:
-		gate_field.inspect.disconnect(inspection.inspect)
+		gate_field.inspect.disconnect(_try_inspect)
 		
 		animated_sprite_2d.visible = true
 		animated_sprite_2d.play(WIN.pick_random())
+		animation_playing = true
 		await animated_sprite_2d.animation_finished
+		animation_playing = false
 		animated_sprite_2d.visible = false
 	
 		next_wave_button.visible = true
 	
 	if real_sheep_tossed >= 2:
-		gate_field.inspect.disconnect(inspection.inspect)
+		gate_field.inspect.disconnect(_try_inspect)
 		
 		animated_sprite_2d.visible = true
 		animated_sprite_2d.play(LOSE.pick_random())
+		animation_playing = true
 		await animated_sprite_2d.animation_finished
+		animation_playing = false
 		animated_sprite_2d.visible = false
 		
 		restart_wave_button.visible = true
 
+func _try_inspect(s): if not animation_playing: inspection.inspect(s)
 
 func _on_next_wave_button_pressed() -> void:
 	Globals.wave += 1

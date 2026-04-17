@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Sheep
 
+const ANIM = ["baa", "notilt", "tilt"]
+
 enum WoolSpot { BROWN, BLACK, NOTHING }
 enum NeckTag { RED, BLUE, GREEN }
 enum TailType { NOTHING, LONG, SHORT }
@@ -10,6 +12,7 @@ signal gate_entered
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var remaining_time: float = 0
 var inspecting: bool = false
@@ -73,6 +76,9 @@ func _physics_process(delta: float) -> void:
 				velocity = Vector2.ZERO
 	
 	if not inspecting:
+		if velocity.x > 0: animated_sprite_2d.flip_h = true
+		if velocity.x < 0: animated_sprite_2d.flip_h = false
+		
 		move_and_slide()
 
 func _on_texture_button_pressed() -> void:
@@ -81,3 +87,8 @@ func _on_texture_button_pressed() -> void:
 	inspecting = true
 	
 	inspect.emit(self)
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	var anim = ANIM.pick_random()
+	animated_sprite_2d.play(anim)

@@ -2,24 +2,111 @@
 
 [ext_resource type="Script" uid="uid://d3p2yt0wgwgwu" path="res://entity/sheep.gd" id="1_mn4pi"]
 [ext_resource type="Texture2D" uid="uid://jcos7ku565q" path="res://icon.svg" id="1_wl4j8"]
+[ext_resource type="Texture2D" uid="uid://7ewe7wmo63j8" path="res://assets/Sheep/Baa Sound_Idle Walk/Baa_Walk-1.png" id="3_0nenp"]
+[ext_resource type="Texture2D" uid="uid://culm2mcbwmewl" path="res://assets/Sheep/Baa Sound_Idle Walk/Baa_Walk-2.png" id="4_fnw5a"]
+[ext_resource type="Texture2D" uid="uid://b5sjhfkrh40xg" path="res://assets/Sheep/Baa Sound_Idle Walk/Baa_Walk-3.png" id="5_t5t5a"]
+[ext_resource type="Texture2D" uid="uid://dng7sq8df6ri2" path="res://assets/Sheep/Baa Sound_Idle Walk/Baa_Walk-4.png" id="6_iir77"]
+[ext_resource type="Texture2D" uid="uid://cwcnvrrq3fwvb" path="res://assets/Sheep/Baa Sound_Idle Walk/Baa_Walk-5.png" id="7_enykk"]
+[ext_resource type="Texture2D" uid="uid://d12v1un2uiswl" path="res://assets/Sheep/NoTilt_Idle Walk/NoTilt_Walk-1.png" id="8_2s3ch"]
+[ext_resource type="Texture2D" uid="uid://c17wp5nnnd1fy" path="res://assets/Sheep/NoTilt_Idle Walk/NoTilt_Walk-2.png" id="9_av2nl"]
+[ext_resource type="Texture2D" uid="uid://c17qiqxb7wi1o" path="res://assets/Sheep/NoTilt_Idle Walk/NoTilt_Walk-3.png" id="10_204yd"]
+[ext_resource type="Texture2D" uid="uid://bud6nl2alnqpy" path="res://assets/Sheep/NoTilt_Idle Walk/NoTilt_Walk-4.png" id="11_xp5h1"]
+[ext_resource type="Texture2D" uid="uid://bto6y3ce4iaqu" path="res://assets/Sheep/NoTilt_Idle Walk/NoTilt_Walk-5.png" id="12_uor72"]
+[ext_resource type="Texture2D" uid="uid://khv3ojoqn6cd" path="res://assets/Sheep/HeadTilt_Idle Walk/Tilt_Walk-1.png" id="13_70i86"]
+[ext_resource type="Texture2D" uid="uid://bxqmoy8xtesoq" path="res://assets/Sheep/HeadTilt_Idle Walk/Tilt_Walk-2.png" id="14_ajqyo"]
+[ext_resource type="Texture2D" uid="uid://ch4s5m104o0sa" path="res://assets/Sheep/HeadTilt_Idle Walk/Tilt_Walk-3.png" id="15_0rhck"]
+[ext_resource type="Texture2D" uid="uid://cbqi5ekacctl8" path="res://assets/Sheep/HeadTilt_Idle Walk/Tilt_Walk-4.png" id="16_3qtjd"]
+[ext_resource type="Texture2D" uid="uid://bjrxnsbls5i7x" path="res://assets/Sheep/HeadTilt_Idle Walk/Tilt_Walk-5.png" id="17_pg58l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mn4pi"]
 radius = 69.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_3q2d2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0nenp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fnw5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_t5t5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_iir77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_enykk")
+}],
+"loop": false,
+"name": &"baa",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_2s3ch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_av2nl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_204yd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_xp5h1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_uor72")
+}],
+"loop": false,
+"name": &"notilt",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_70i86")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ajqyo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0rhck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3qtjd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_pg58l")
+}],
+"loop": false,
+"name": &"tilt",
+"speed": 6.0
+}]
+
 [node name="Sheep" type="CharacterBody2D" unique_id=409841071]
 collision_mask = 17
 script = ExtResource("1_mn4pi")
-
-[node name="TextureButton" type="TextureButton" parent="." unique_id=1727958740]
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
-texture_normal = ExtResource("1_wl4j8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=172810179]
 shape = SubResource("CircleShape2D_mn4pi")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=893425560]
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1014830072]
+position = Vector2(0, -14.999999)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_3q2d2")
+animation = &"notilt"
+autoplay = "notilt"
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1727958740]
+modulate = Color(1, 1, 1, 0)
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+texture_normal = ExtResource("1_wl4j8")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

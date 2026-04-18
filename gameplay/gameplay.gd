@@ -29,6 +29,8 @@ const LOSE = ["lose_1", "lose_2"]
 @onready var click: AudioStreamPlayer = $Click
 @onready var basketball_sheep: AudioStreamPlayer = $BasketballSheep
 @onready var soccer_sheep: AudioStreamPlayer = $SoccerSheep
+@onready var correct_sheep_sfx: AudioStreamPlayer = $CorrectSheepSfx
+@onready var wrong_sheep_sfx: AudioStreamPlayer = $WrongSheepSfx
 
 var wool_spot_rule: Sheep.WoolSpot
 var neck_tag_rule: Sheep.NeckTag
@@ -73,9 +75,6 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 	if sheep.neck_tag == neck_tag_rule: follow_rule_count += 1
 	if sheep.tail_type == tail_type_rule: follow_rule_count += 1
 	
-	if follow_rule_count >= 2: real_sheep_tossed += 1
-	else: imposter_tossed += 1
-	
 	animated_sprite_2d.visible = true
 	var toss = TOSS.pick_random()
 	animated_sprite_2d.play(toss)
@@ -85,6 +84,13 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 	await animated_sprite_2d.animation_finished
 	animation_playing = false
 	animated_sprite_2d.visible = false
+	
+	if follow_rule_count >= 2: 
+		real_sheep_tossed += 1
+		wrong_sheep_sfx.play()
+	else: 
+		imposter_tossed += 1
+		correct_sheep_sfx.play()
 	
 	first_mistake.visible = real_sheep_tossed >= 1
 	second_mistake.visible = real_sheep_tossed >= 2

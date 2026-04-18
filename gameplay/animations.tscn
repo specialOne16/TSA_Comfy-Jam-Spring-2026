@@ -87,46 +87,88 @@
 [ext_resource type="Texture2D" uid="uid://d2uux0ndc4ol" path="res://assets/Throw Animations/Shoot/Shoot-16.png" id="85_s3rh3"]
 [ext_resource type="Texture2D" uid="uid://bnkkw4st662kf" path="res://assets/Throw Animations/Shoot/Shoot-17.png" id="86_n7mco"]
 [ext_resource type="Texture2D" uid="uid://d1d5rpcqllt1s" path="res://assets/Win Animations/HatTip/HatTip-1.png" id="87_f8wvt"]
+[ext_resource type="Texture2D" uid="uid://bpovju6ceqour" path="res://assets/Wave End Animations/Wave Clear/WaveClear-1.png" id="87_lug1a"]
+[ext_resource type="Texture2D" uid="uid://dsw2i553dqyey" path="res://assets/Wave End Animations/Wave Clear/WaveClear-2.png" id="88_fj1qb"]
 [ext_resource type="Texture2D" uid="uid://p5hmhqajcukc" path="res://assets/Win Animations/HatTip/HatTip-2.png" id="88_jpnya"]
 [ext_resource type="Texture2D" uid="uid://tnimqs4xu7bd" path="res://assets/Win Animations/HatTip/HatTip-3.png" id="89_m6ei3"]
+[ext_resource type="Texture2D" uid="uid://bawcww20il0cn" path="res://assets/Wave End Animations/Wave Clear/WaveClear-3.png" id="89_r4pw1"]
 [ext_resource type="Texture2D" uid="uid://dubq1ncfhv73q" path="res://assets/Win Animations/HatTip/HatTip-4.png" id="90_gmrnv"]
+[ext_resource type="Texture2D" uid="uid://2noelhoqiusu" path="res://assets/Wave End Animations/Wave Clear/WaveClear-4.png" id="90_nvgfy"]
+[ext_resource type="Texture2D" uid="uid://t3ldmidos12g" path="res://assets/Wave End Animations/Wave Clear/WaveClear-5.png" id="91_1w6qp"]
 [ext_resource type="Texture2D" uid="uid://dleq7bcc5nlbi" path="res://assets/Win Animations/HatTip/HatTip-5.png" id="91_lludw"]
+[ext_resource type="Texture2D" uid="uid://dt0gk2tcpcc8a" path="res://assets/Wave End Animations/Wave Clear/WaveClear-6.png" id="92_u6e5a"]
 [ext_resource type="Texture2D" uid="uid://rdq1vchssj21" path="res://assets/Win Animations/HatTip/HatTip-6.png" id="92_w0g7m"]
+[ext_resource type="Texture2D" uid="uid://d12hdcwbx4y2l" path="res://assets/Wave End Animations/Wave Clear/WaveClear-7.png" id="93_4hj81"]
 [ext_resource type="Texture2D" uid="uid://cg52l68esbrv8" path="res://assets/Win Animations/HatTip/HatTip-7.png" id="93_kqjfa"]
 [ext_resource type="Texture2D" uid="uid://bi0o61f2kixij" path="res://assets/Win Animations/HatTip/HatTip-8.png" id="94_anqsh"]
+[ext_resource type="Texture2D" uid="uid://b713tpkxr43o0" path="res://assets/Wave End Animations/Wave Clear/WaveClear-8.png" id="94_rhqi3"]
 [ext_resource type="Texture2D" uid="uid://dp1ma3nbfexny" path="res://assets/Win Animations/HatTip/HatTip-9.png" id="95_jap3p"]
+[ext_resource type="Texture2D" uid="uid://bnxiavqixyhc1" path="res://assets/Wave End Animations/Wave Clear/WaveClear-9.png" id="95_tr32i"]
 [ext_resource type="Texture2D" uid="uid://dmqdxtotrkrxm" path="res://assets/Win Animations/HatTip/HatTip-10.png" id="96_1erqo"]
+[ext_resource type="Texture2D" uid="uid://cjmagb6gn3e05" path="res://assets/Wave End Animations/Wave Clear/WaveClear-10.png" id="96_4075s"]
 [ext_resource type="Texture2D" uid="uid://dbwg7bukees64" path="res://assets/Win Animations/HatTip/HatTip-11.png" id="97_phfw3"]
+[ext_resource type="Texture2D" uid="uid://b71fr2dto35q6" path="res://assets/Wave End Animations/Wave Clear/WaveClear-11.png" id="97_wlpr8"]
+[ext_resource type="Texture2D" uid="uid://cj8y7rretuxg4" path="res://assets/Wave End Animations/Wave Clear/WaveClear-12.png" id="98_0upds"]
 [ext_resource type="Texture2D" uid="uid://b588c33skwrc3" path="res://assets/Win Animations/HatTip/HatTip-12.png" id="98_gqnbd"]
 [ext_resource type="Texture2D" uid="uid://cndpd8iuf3y44" path="res://assets/Win Animations/HatTip/HatTip-13.png" id="99_7jij5"]
+[ext_resource type="Texture2D" uid="uid://ge6gqlkvyoxw" path="res://assets/Wave End Animations/Wave Clear/WaveClear-13.png" id="99_o18vl"]
+[ext_resource type="Texture2D" uid="uid://lhv26es2crt5" path="res://assets/Wave End Animations/Wave Clear/WaveClear-14.png" id="100_5pw0y"]
 [ext_resource type="Texture2D" uid="uid://cuhnigud667dy" path="res://assets/Win Animations/HatTip/HatTip-14.png" id="100_p1kpw"]
+[ext_resource type="Texture2D" uid="uid://3vvbx1hrscmt" path="res://assets/Wave End Animations/Wave Clear/WaveClear-15.png" id="101_03a5n"]
 [ext_resource type="Texture2D" uid="uid://d0srm1jpn536k" path="res://assets/Win Animations/HatTip/HatTip-15.png" id="101_u3gmr"]
+[ext_resource type="Texture2D" uid="uid://bls8nyxmk4mm1" path="res://assets/Wave End Animations/Wave Clear/WaveClear-16.png" id="102_aan74"]
 [ext_resource type="Texture2D" uid="uid://7s7l3kgxq1ud" path="res://assets/Win Animations/HatTip/HatTip-16.png" id="102_mw5xu"]
 [ext_resource type="Texture2D" uid="uid://brx7skx60rf3y" path="res://assets/Win Animations/HatTip/HatTip-17.png" id="103_2grhd"]
+[ext_resource type="Texture2D" uid="uid://cfmbes0c0roru" path="res://assets/Wave End Animations/Wave Clear/WaveClear-17.png" id="103_tm7qk"]
 [ext_resource type="Texture2D" uid="uid://okuw8a3ilfna" path="res://assets/Win Animations/HatTip/HatTip-18.png" id="104_b2610"]
+[ext_resource type="Texture2D" uid="uid://d7ow6y4xcywf" path="res://assets/Wave End Animations/Wave Clear/WaveClear-18.png" id="104_jkkt4"]
+[ext_resource type="Texture2D" uid="uid://do5n4t31ge15w" path="res://assets/Wave End Animations/Wave Clear/WaveClear-19.png" id="105_t5bj2"]
 [ext_resource type="Texture2D" uid="uid://c4milkfdrmduk" path="res://assets/Win Animations/HatTip/HatTip-19.png" id="105_w5m3x"]
 [ext_resource type="Texture2D" uid="uid://ct8tnhmian04a" path="res://assets/Win Animations/HatTip/HatTip-20.png" id="106_h0xmb"]
+[ext_resource type="Texture2D" uid="uid://su2kkxrsgjv0" path="res://assets/Wave End Animations/Wave Clear/WaveClear-20.png" id="106_objfn"]
+[ext_resource type="Texture2D" uid="uid://bi3u5qkarug06" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-1.png" id="107_8u714"]
 [ext_resource type="Texture2D" uid="uid://bpclm7su23ltd" path="res://assets/Win Animations/HatTip/HatTip-21.png" id="107_o88t4"]
 [ext_resource type="Texture2D" uid="uid://c4mjnriodn4wh" path="res://assets/Win Animations/HatTip/HatTip-22.png" id="108_a25bm"]
+[ext_resource type="Texture2D" uid="uid://7ejr5xpkskvb" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-2.png" id="108_bthvt"]
 [ext_resource type="Texture2D" uid="uid://cncp708jv18ws" path="res://assets/Win Animations/HatTip/HatTip-23.png" id="109_dh6of"]
+[ext_resource type="Texture2D" uid="uid://btnpopjeyesd6" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-3.png" id="109_grj87"]
 [ext_resource type="Texture2D" uid="uid://i8jeya8dht8t" path="res://assets/Win Animations/HatTip/HatTip-24.png" id="110_gqxmi"]
+[ext_resource type="Texture2D" uid="uid://rbb3i52nj6s5" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-4.png" id="110_xd3hm"]
 [ext_resource type="Texture2D" uid="uid://cmtvl51wrkmq" path="res://assets/Win Animations/HatTip/HatTip-25.png" id="111_j1wkw"]
+[ext_resource type="Texture2D" uid="uid://prvi7h4ln6jv" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-5.png" id="111_s0kd4"]
 [ext_resource type="Texture2D" uid="uid://6055j6fn32d2" path="res://assets/Win Animations/HatTip/HatTip-26.png" id="112_a3rnt"]
+[ext_resource type="Texture2D" uid="uid://7glhg6kb48c3" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-6.png" id="112_y634e"]
+[ext_resource type="Texture2D" uid="uid://bxehqspvr76kl" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-7.png" id="113_7qrvi"]
 [ext_resource type="Texture2D" uid="uid://cdo1t2gjlbqsn" path="res://assets/Win Animations/HatTip/HatTip-27.png" id="113_wf3jx"]
+[ext_resource type="Texture2D" uid="uid://vuai47ayp2cf" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-8.png" id="114_hmqk1"]
 [ext_resource type="Texture2D" uid="uid://d4gw76d8b21et" path="res://assets/Win Animations/HatTip/HatTip-29.png" id="114_vwy5w"]
+[ext_resource type="Texture2D" uid="uid://b70vkku7y23l1" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-9.png" id="115_7rp7t"]
 [ext_resource type="Texture2D" uid="uid://cuf0tqt5vlx24" path="res://assets/Win Animations/HatTip/HatTip-30.png" id="115_f73a8"]
 [ext_resource type="Texture2D" uid="uid://ctb88d2wqqdsl" path="res://assets/Win Animations/HatTip/HatTip-31.png" id="116_6ffdm"]
+[ext_resource type="Texture2D" uid="uid://b1errx673idiw" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-10.png" id="116_qv3mc"]
 [ext_resource type="Texture2D" uid="uid://crwrq7udhd0bb" path="res://assets/Win Animations/ThumbsUp/ThumbsUp-1.png" id="117_3b72l"]
+[ext_resource type="Texture2D" uid="uid://bwuyo4pxkry3e" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-11.png" id="117_ypdk4"]
 [ext_resource type="Texture2D" uid="uid://boogo4ctxlkvv" path="res://assets/Win Animations/ThumbsUp/ThumbsUp-2.png" id="118_3mlvn"]
+[ext_resource type="Texture2D" uid="uid://c6vqnu8qh0lbe" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-12.png" id="118_o5314"]
 [ext_resource type="Texture2D" uid="uid://7ev7gwhoy0yj" path="res://assets/Win Animations/ThumbsUp/ThumbsUp-3.png" id="119_jyihf"]
+[ext_resource type="Texture2D" uid="uid://bch33npyi0l81" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-13.png" id="119_pmj2y"]
+[ext_resource type="Texture2D" uid="uid://csybnwut4yaln" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-14.png" id="120_bdtdb"]
 [ext_resource type="Texture2D" uid="uid://bxv74b6hil0d1" path="res://assets/Win Animations/ThumbsUp/ThumbsUp-4.png" id="120_lueo3"]
+[ext_resource type="Texture2D" uid="uid://cj6cnlhyhyeh0" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-15.png" id="121_3rm0h"]
 [ext_resource type="Texture2D" uid="uid://pwsarimlg8cr" path="res://assets/Win Animations/ThumbsUp/ThumbsUp-5.png" id="121_v16pm"]
 [ext_resource type="Texture2D" uid="uid://daawibo1ko4ys" path="res://assets/Win Animations/ThumbsUp/ThumbsUp-6.png" id="122_e3dsx"]
+[ext_resource type="Texture2D" uid="uid://dc1lb1v0hc8kp" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-16.png" id="122_mm0do"]
+[ext_resource type="Texture2D" uid="uid://c4e6fd7u1f8i4" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-17.png" id="123_llmmf"]
 [ext_resource type="Texture2D" uid="uid://b3asqkian4eg2" path="res://assets/Win Animations/ThumbsUp/ThumbsUp-7.png" id="123_xx42s"]
 [ext_resource type="Texture2D" uid="uid://crlc8ygej8jx8" path="res://assets/Win Animations/ThumbsUp/ThumbsUp-8.png" id="124_2yovo"]
+[ext_resource type="Texture2D" uid="uid://buedvrifsenb3" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-18.png" id="124_ycta0"]
 [ext_resource type="Texture2D" uid="uid://beih72g1twbio" path="res://assets/Win Animations/ThumbsUp/ThumbsUp-9.png" id="125_6lsfp"]
+[ext_resource type="Texture2D" uid="uid://depnfifgl8n62" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-19.png" id="125_eyun3"]
+[ext_resource type="Texture2D" uid="uid://csfkwcper61x1" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-20.png" id="126_2epn2"]
 [ext_resource type="Texture2D" uid="uid://blddqvlg1yku3" path="res://assets/Win Animations/ThumbsUp/ThumbsUp-10.png" id="126_3aefx"]
 [ext_resource type="Texture2D" uid="uid://bexof3q1l4w17" path="res://assets/Win Animations/ThumbsUp/ThumbsUp-11.png" id="127_1shht"]
+[ext_resource type="Texture2D" uid="uid://geya4tmv35r3" path="res://assets/Wave End Animations/Wave Failed/WaveFail_-21.png" id="127_10cbb"]
+[ext_resource type="Texture2D" uid="uid://cmmjpei061wxo" path="res://assets/Wave End Animations/Wave Failed/WaveFail-22.png" id="128_fnhv8"]
 [ext_resource type="Texture2D" uid="uid://c76yxikixib2k" path="res://assets/Win Animations/ThumbsUp/ThumbsUp-12.png" id="128_tyaxl"]
 [ext_resource type="Texture2D" uid="uid://qbetfqerda8e" path="res://assets/Win Animations/ThumbsUp/ThumbsUp-13.png" id="129_6r7qi"]
 [ext_resource type="Texture2D" uid="uid://cee6d4uyamv6n" path="res://assets/Win Animations/ThumbsUp/ThumbsUp-14.png" id="130_l6hk8"]
@@ -421,6 +463,142 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("87_lug1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_fj1qb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_r4pw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_nvgfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_1w6qp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_u6e5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_4hj81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_rhqi3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_tr32i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_4075s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_wlpr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_0upds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_o18vl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_5pw0y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_03a5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_aan74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_tm7qk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_jkkt4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_t5bj2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_objfn")
+}],
+"loop": false,
+"name": &"wave_clear",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("107_8u714")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_bthvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_grj87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_xd3hm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_s0kd4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_y634e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_7qrvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_hmqk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_7rp7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_qv3mc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_ypdk4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118_o5314")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_pmj2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_bdtdb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_3rm0h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("122_mm0do")
+}, {
+"duration": 1.0,
+"texture": ExtResource("123_llmmf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124_ycta0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125_eyun3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_2epn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_10cbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_fnhv8")
+}],
+"loop": false,
+"name": &"wave_lost",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("87_f8wvt")
 }, {
 "duration": 1.0,
@@ -588,7 +766,5 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=278692522]
 sprite_frames = SubResource("SpriteFrames_oltbr")
-animation = &"kick"
-frame = 11
-frame_progress = 1.0
+animation = &"wave_lost"
 centered = false

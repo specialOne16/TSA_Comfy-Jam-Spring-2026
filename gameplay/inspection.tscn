@@ -4,9 +4,93 @@
 [ext_resource type="Texture2D" uid="uid://c34m5njg2diw7" path="res://assets/UI/Arrow left.png" id="2_cxf6o"]
 [ext_resource type="Texture2D" uid="uid://cxtyysmqw5at4" path="res://assets/UI/Right arrow.png" id="3_1gawa"]
 [ext_resource type="Texture2D" uid="uid://ci778t5n7ueqc" path="res://assets/Inspection Windows/Spots/BlackSpots_Transparent.png" id="4_1gawa"]
+[ext_resource type="Texture2D" uid="uid://c27eoibutrijw" path="res://assets/UI/Toss Button/Toss-1.png" id="4_e5f5o"]
+[ext_resource type="Texture2D" uid="uid://baakltujst30j" path="res://assets/UI/Toss Button/Toss-2.png" id="5_afy44"]
 [ext_resource type="AudioStream" uid="uid://ccat3qp8mu0yr" path="res://audio/click.wav" id="5_f0owt"]
+[ext_resource type="Texture2D" uid="uid://mfcychu3cea" path="res://assets/UI/Toss Button/Toss-3.png" id="6_h6ief"]
 [ext_resource type="AudioStream" uid="uid://n1e3dkhjjovm" path="res://audio/Checking_Tag.wav" id="6_ih2dt"]
 [ext_resource type="AudioStream" uid="uid://b08h2d2wcgf8e" path="res://audio/Rotating_Sheep.wav" id="7_8uxue"]
+[ext_resource type="Texture2D" uid="uid://qh5muaf8omar" path="res://assets/UI/Keep Button/Keep-1.png" id="7_wjyr5"]
+[ext_resource type="Texture2D" uid="uid://b26vhpbr175of" path="res://assets/UI/Keep Button/Keep-2.png" id="8_3p06d"]
+[ext_resource type="Texture2D" uid="uid://cp8keumd002fl" path="res://assets/UI/Keep Button/Keep-3.png" id="9_obstd"]
+
+[sub_resource type="Animation" id="Animation_wjyr5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_3p06d"]
+resource_name = "default"
+length = 3.0000167
+loop_mode = 1
+step = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_e5f5o"), ExtResource("5_afy44"), ExtResource("6_h6ief")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_obstd"]
+_data = {
+&"RESET": SubResource("Animation_wjyr5"),
+&"default": SubResource("Animation_3p06d")
+}
+
+[sub_resource type="Animation" id="Animation_rklx2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_ebxkl"]
+resource_name = "default"
+length = 3.0000167
+loop_mode = 1
+step = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_wjyr5"), ExtResource("8_3p06d"), ExtResource("9_obstd")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f4n7t"]
+_data = {
+&"RESET": SubResource("Animation_rklx2"),
+&"default": SubResource("Animation_ebxkl")
+}
 
 [node name="Inspection" type="Node2D" unique_id=1021310556]
 script = ExtResource("1_2td1x")
@@ -74,15 +158,19 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 192
 
-[node name="TossButton" type="Button" parent="Control/HBoxContainer" unique_id=1827852085]
+[node name="TossButton" type="TextureButton" parent="Control/HBoxContainer" unique_id=462629050]
 layout_mode = 2
-theme_override_font_sizes/font_size = 42
-text = "Toss"
 
-[node name="KeepButton" type="Button" parent="Control/HBoxContainer" unique_id=121210837]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/HBoxContainer/TossButton" unique_id=1630485036]
+libraries/ = SubResource("AnimationLibrary_obstd")
+autoplay = &"default"
+
+[node name="KeepButton" type="TextureButton" parent="Control/HBoxContainer" unique_id=349400364]
 layout_mode = 2
-theme_override_font_sizes/font_size = 42
-text = "Keep"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/HBoxContainer/KeepButton" unique_id=823686906]
+libraries/ = SubResource("AnimationLibrary_f4n7t")
+autoplay = &"default"
 
 [node name="InspectionStatus" type="TextureRect" parent="Control" unique_id=300653665]
 layout_mode = 0

@@ -102,6 +102,8 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 		animated_sprite_2d.play(WIN.pick_random())
 		animation_playing = true
 		await animated_sprite_2d.animation_finished
+		animated_sprite_2d.play("wave_clear")
+		await animated_sprite_2d.animation_finished
 		animation_playing = false
 		animated_sprite_2d.visible = false
 	
@@ -115,6 +117,8 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 		animated_sprite_2d.play(LOSE.pick_random())
 		animation_playing = true
 		await animated_sprite_2d.animation_finished
+		animated_sprite_2d.play("wave_lost")
+		await animated_sprite_2d.animation_finished
 		animation_playing = false
 		animated_sprite_2d.visible = false
 		
@@ -124,12 +128,15 @@ func _try_inspect(s): if not animation_playing: inspection.inspect(s)
 
 func _pop_up_holding_sheep():
 	holding_sheep.play("pop_up")
+	holding_sheep.visible = true
 	await holding_sheep.animation_finished
 	holding_sheep.play("hold_card")
 	wave_label.visible = true
 	await holding_sheep.animation_finished
 	wave_label.visible = false
 	holding_sheep.play("dissapear")
+	await holding_sheep.animation_finished
+	holding_sheep.visible = false
 
 func _on_gameplay_finished() -> void:
 	gameplay.play()

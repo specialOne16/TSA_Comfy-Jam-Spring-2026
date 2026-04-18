@@ -1,7 +1,7 @@
 extends Node2D
 class_name GateField
 
-@onready var SHEEP = Globals.get_sheep_resource()
+const SHEEP = preload("uid://c6fa3ik7hdw4n")
 
 @onready var open_gate_ui: TextureRect = $OpenGate
 @onready var close_gate_ui: TextureRect = $CloseGate
@@ -97,6 +97,10 @@ func open_gate(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, tai
 
 func close_gate():
 	fence.play()
+	open_gate_ui.visible = false
+	close_gate_ui.visible = true
+
+func _ready() -> void:
 	open_gate_ui.visible = false
 	close_gate_ui.visible = true
 

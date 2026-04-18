@@ -25,6 +25,7 @@ var tail_type: TailType
 
 func un_inspect():
 	inspecting = false
+	animated_sprite_2d.modulate = Color(0x939393ff)
 
 func exit_gate():
 	inspectable = false

@@ -101,7 +101,6 @@ script = ExtResource("1_ueusv")
 [node name="GateField" parent="." unique_id=1050532754 instance=ExtResource("1_41n4r")]
 
 [node name="Inspection" parent="." unique_id=186340771 instance=ExtResource("2_ueusv")]
-visible = false
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=231919822]
 navigation_polygon = SubResource("NavigationPolygon_ueusv")

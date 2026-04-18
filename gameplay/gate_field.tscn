@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://8sp330kpq1ml" path="res://gameplay/gate_field.gd" id="1_htcj0"]
 [ext_resource type="Texture2D" uid="uid://cogbw76y22ewe" path="res://assets/Bg_Compressed.png" id="2_vcysg"]
 [ext_resource type="Texture2D" uid="uid://bg5cx45v0k5gg" path="res://assets/Gate/OpenGate.png" id="3_tyqgv"]
+[ext_resource type="Texture2D" uid="uid://6lbtvto1cup8" path="res://assets/Bottom fence.png" id="3_x4su0"]
 [ext_resource type="Texture2D" uid="uid://csxr3as7al2ya" path="res://assets/Gate/ClosedGate.png" id="4_x4su0"]
 [ext_resource type="AudioStream" uid="uid://bj313if8i5ilq" path="res://audio/Fence.wav" id="5_tyqgv"]
 
@@ -23,6 +24,13 @@ z_index = -4
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_vcysg")
+
+[node name="Background2" type="TextureRect" parent="." unique_id=211451357]
+z_index = 3
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("3_x4su0")
 
 [node name="OpenGate" type="TextureRect" parent="." unique_id=546316233]
 z_index = -3

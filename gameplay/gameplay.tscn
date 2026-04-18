@@ -8,13 +8,91 @@
 [ext_resource type="Texture2D" uid="uid://bfs30sq8vbthj" path="res://assets/UI/FirstMistake_UI.png" id="5_nimes"]
 [ext_resource type="Texture2D" uid="uid://tyai66q37lq7" path="res://assets/UI/SecondMistake_UI.png" id="6_2okcp"]
 [ext_resource type="AudioStream" uid="uid://ccat3qp8mu0yr" path="res://audio/click.wav" id="6_7pdct"]
+[ext_resource type="Texture2D" uid="uid://tpyoux8rpijm" path="res://assets/Wave/Third - Dissapear/Dissapear-1.png" id="7_s60jr"]
 [ext_resource type="AudioStream" uid="uid://dwpi21w3c21pb" path="res://audio/Basketball_sheep.wav" id="7_yvprt"]
+[ext_resource type="Texture2D" uid="uid://b5hj1rgk2blbs" path="res://assets/Wave/Third - Dissapear/Dissapear-2.png" id="8_q2ml8"]
 [ext_resource type="AudioStream" uid="uid://ijqliokubeoc" path="res://audio/Soccer_sheep.wav" id="8_r5as3"]
+[ext_resource type="Texture2D" uid="uid://cdbgjt0sui87u" path="res://assets/Wave/Third - Dissapear/Dissapear-3.png" id="9_n6aft"]
+[ext_resource type="Texture2D" uid="uid://byqxkqlfdxu6a" path="res://assets/Wave/Second - Hold Card/HoldCard-1.png" id="10_2qs7h"]
+[ext_resource type="Texture2D" uid="uid://bqku4w2h2rxrs" path="res://assets/Wave/Second - Hold Card/HoldCard-2.png" id="11_wxx72"]
+[ext_resource type="Texture2D" uid="uid://dbes7clrwrmow" path="res://assets/Wave/Second - Hold Card/HoldCard-3.png" id="12_2beay"]
+[ext_resource type="Texture2D" uid="uid://cc0ca6s3hth2s" path="res://assets/Wave/Second - Hold Card/HoldCard-4.png" id="13_ni0ts"]
+[ext_resource type="Texture2D" uid="uid://c0qrhks4h5bxn" path="res://assets/Wave/Second - Hold Card/HoldCard-5.png" id="14_g4a3a"]
+[ext_resource type="Texture2D" uid="uid://cs70j0lmpp5yw" path="res://assets/Wave/First - PopUp/PopUp-1.png" id="15_ab7fx"]
+[ext_resource type="Texture2D" uid="uid://dfj7wkyr22hjg" path="res://assets/Wave/First - PopUp/PopUp-2.png" id="16_jypll"]
+[ext_resource type="Texture2D" uid="uid://du3ne1wa0f4x8" path="res://assets/Wave/First - PopUp/PopUp-3.png" id="17_i1kvf"]
+[ext_resource type="Texture2D" uid="uid://dj7bi3k6f20iy" path="res://assets/Wave/First - PopUp/PopUp-4.png" id="18_h2b7s"]
+[ext_resource type="Texture2D" uid="uid://bnky0fiw11e5" path="res://assets/Wave/First - PopUp/PopUp-5.png" id="19_obvfg"]
+[ext_resource type="Texture2D" uid="uid://ce7rao5rl2xjf" path="res://assets/Wave/First - PopUp/PopUp-6.png" id="20_3ivnk"]
+[ext_resource type="Texture2D" uid="uid://dwfigndcl7wa2" path="res://assets/Wave/First - PopUp/PopUp-7.png" id="21_c3and"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ueusv"]
 vertices = PackedVector2Array(2550, 1273.2188, 2397.7969, 1334, 1610, 1334, 1610, 1206, 1671.5313, 841.02344, 2112, 778.10156, 2550, 840.6719, -138, 1206, -138, 1398, -2550, 1398, -2550, 10, -138, 10, -138, 1034, 1607.2109, 1034)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(10, 11, 12), PackedInt32Array(7, 10, 12), PackedInt32Array(7, 12, 13, 3), PackedInt32Array(3, 13, 4)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-2560, 0, -128, 0, -128, 1024, 1600, 1024, 1664, 832, 2112, 768, 2560, 832, 2560, 1280, 2399.7258, 1344, 1600, 1344, 1600, 1216, -128, 1216, -128, 1408, -2560, 1408)])
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_udgb5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_s60jr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_q2ml8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_n6aft")
+}],
+"loop": false,
+"name": &"dissapear",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_2qs7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_wxx72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2beay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ni0ts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_g4a3a")
+}],
+"loop": false,
+"name": &"hold_card",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_ab7fx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_jypll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_i1kvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_h2b7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_obvfg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_3ivnk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_c3and")
+}],
+"loop": false,
+"name": &"pop_up",
+"speed": 6.0
+}]
 
 [node name="Gameplay" type="Node2D" unique_id=1278754783]
 y_sort_enabled = true
@@ -23,6 +101,7 @@ script = ExtResource("1_ueusv")
 [node name="GateField" parent="." unique_id=1050532754 instance=ExtResource("1_41n4r")]
 
 [node name="Inspection" parent="." unique_id=186340771 instance=ExtResource("2_ueusv")]
+visible = false
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=231919822]
 navigation_polygon = SubResource("NavigationPolygon_ueusv")
@@ -83,9 +162,26 @@ offset_bottom = 40.0
 mouse_filter = 2
 texture = ExtResource("6_2okcp")
 
+[node name="HoldingSheep" type="AnimatedSprite2D" parent="Control" unique_id=2050516303]
+sprite_frames = SubResource("SpriteFrames_udgb5")
+animation = &"pop_up"
+centered = false
+
+[node name="WaveLabel" type="Label" parent="Control" unique_id=305782799]
+layout_mode = 0
+offset_left = 1402.9998
+offset_top = 694.0
+offset_right = 1503.0695
+offset_bottom = 773.782
+rotation = 1.107037
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 58
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Gameplay" type="AudioStreamPlayer" parent="." unique_id=1021387425]
 stream = ExtResource("5_gvicd")
-volume_db = -10.0
+volume_db = -15.0
 autoplay = true
 
 [node name="Click" type="AudioStreamPlayer" parent="." unique_id=611179851]

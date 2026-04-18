@@ -106,7 +106,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mn4pi"]
-radius = 101.0
+radius = 50.0
 
 [node name="Sheep" type="CharacterBody2D" unique_id=409841071]
 collision_mask = 17
@@ -114,6 +114,7 @@ script = ExtResource("1_mn4pi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1014830072]
 position = Vector2(0, -14.999999)
+scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_3q2d2")
 animation = &"notilt"
 autoplay = "notilt"
@@ -125,9 +126,10 @@ shape = SubResource("CircleShape2D_mn4pi")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1727958740]
 modulate = Color(1, 1, 1, 0)
-offset_left = -128.0
-offset_top = -128.0
-scale = Vector2(2, 2)
+offset_left = -97.0
+offset_top = -95.0
+offset_right = 91.0
+offset_bottom = 65.0
 texture_normal = ExtResource("1_wl4j8")
 
 [node name="BaaahA" type="AudioStreamPlayer" parent="." unique_id=796747411]

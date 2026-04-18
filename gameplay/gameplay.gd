@@ -11,6 +11,8 @@ const LOSE = ["lose_1", "lose_2"]
 @onready var wool_spot_rule_label: Label = $Control/TsaBoard/VBoxContainer/WoolSpotRule
 @onready var neck_tag_rule_label: Label = $Control/TsaBoard/VBoxContainer/NeckTagRule
 @onready var tail_type_rule_label: Label = $Control/TsaBoard/VBoxContainer/TailTypeRule
+@onready var holding_sheep: AnimatedSprite2D = $Control/HoldingSheep
+@onready var wave_label: Label = $Control/WaveLabel
 
 @onready var first_mistake: TextureRect = $Control/FirstMistake
 @onready var second_mistake: TextureRect = $Control/SecondMistake
@@ -55,6 +57,11 @@ func _ready() -> void:
 	wool_spot_rule_label.text = "Wool Spot = %s" % Sheep.WoolSpot.keys()[wool_spot_rule]
 	neck_tag_rule_label.text = "Neck Tag = %s" % Sheep.NeckTag.keys()[neck_tag_rule]
 	tail_type_rule_label.text = "Tail Type = %s" % Sheep.TailType.keys()[tail_type_rule]
+	
+	wave_label.text = str(Globals.wave)
+	wave_label.visible = false
+	
+	_pop_up_holding_sheep()
 	
 	ResourceLoader.load_threaded_request("uid://b5lo1jvsbpgwb")
 
@@ -114,6 +121,15 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 		get_tree().reload_current_scene()
 
 func _try_inspect(s): if not animation_playing: inspection.inspect(s)
+
+func _pop_up_holding_sheep():
+	holding_sheep.play("pop_up")
+	await holding_sheep.animation_finished
+	holding_sheep.play("hold_card")
+	wave_label.visible = true
+	await holding_sheep.animation_finished
+	wave_label.visible = false
+	holding_sheep.play("dissapear")
 
 func _on_gameplay_finished() -> void:
 	gameplay.play()

@@ -1,7 +1,7 @@
 extends Node2D
 class_name GateField
 
-const SHEEP = preload("uid://c6fa3ik7hdw4n")
+@onready var SHEEP = Globals.get_sheep_resource()
 
 @onready var open_gate_ui: TextureRect = $OpenGate
 @onready var close_gate_ui: TextureRect = $CloseGate
@@ -63,11 +63,10 @@ func open_gate(wool_spot_rule: Sheep.WoolSpot, neck_tag_rule: Sheep.NeckTag, tai
 	if should_exit_gate or true:
 		var exit_gate_amount = randi_range(1, 4)
 		while exit_gate_amount > 0 and not real_sheep_store.is_empty():
-			var sheep_to_exit = real_sheep_store.pick_random()
+			var sheep_to_exit = real_sheep_store.pop_back()
 			if is_instance_valid(sheep_to_exit) and not sheep_to_exit.inspecting:
 				sheep_to_exit.exit_gate()
 				exit_gate_amount -= 1
-				real_sheep_store.erase(sheep_to_exit)
 	
 	var new_sheep_count = randi_range(1, 5)
 	var new_imposter_count = roundi(new_sheep_count * randf_range(0.4, 0.6))

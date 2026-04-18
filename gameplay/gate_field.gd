@@ -1,7 +1,7 @@
 extends Node2D
 class_name GateField
 
-const SHEEP = preload("uid://c6fa3ik7hdw4n")
+@onready var SHEEP = Globals.get_sheep_resource()
 
 @onready var open_gate_ui: TextureRect = $OpenGate
 @onready var close_gate_ui: TextureRect = $CloseGate

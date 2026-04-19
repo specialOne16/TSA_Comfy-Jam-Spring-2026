@@ -36,6 +36,10 @@ func exit_gate():
 	set_collision_mask_value(5, false)
 	set_collision_layer_value(2, true)
 	set_collision_mask_value(2, true)
+	
+	var anim = ANIM.pick_random()
+	if anim == "baa": baa.pick_random().play()
+	animated_sprite_2d.play(anim)
 
 func enter_gate(spawn_spot: int):
 	inspectable = false

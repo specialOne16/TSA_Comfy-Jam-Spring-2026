@@ -31,6 +31,7 @@ const LOSE = ["lose_1", "lose_2"]
 @onready var soccer_sheep: AudioStreamPlayer = $SoccerSheep
 @onready var correct_sheep_sfx: AudioStreamPlayer = $CorrectSheepSfx
 @onready var wrong_sheep_sfx: AudioStreamPlayer = $WrongSheepSfx
+@onready var f_1_sh_dog_bark_202604181859: AudioStreamPlayer = $F1ShDogBark202604181859
 
 var wool_spot_rule: Sheep.WoolSpot
 var neck_tag_rule: Sheep.NeckTag
@@ -109,6 +110,7 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 		animation_playing = true
 		await animated_sprite_2d.animation_finished
 		animated_sprite_2d.play("wave_clear")
+		f_1_sh_dog_bark_202604181859.play()
 		await animated_sprite_2d.animation_finished
 		animation_playing = false
 		animated_sprite_2d.visible = false
@@ -124,6 +126,7 @@ func _on_inspection_sheep_tossed(sheep: Sheep) -> void:
 		animation_playing = true
 		await animated_sprite_2d.animation_finished
 		animated_sprite_2d.play("wave_lost")
+		f_1_sh_dog_bark_202604181859.play()
 		await animated_sprite_2d.animation_finished
 		animation_playing = false
 		animated_sprite_2d.visible = false

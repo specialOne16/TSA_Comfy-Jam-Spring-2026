@@ -2,8 +2,98 @@
 
 [ext_resource type="Script" uid="uid://buumi2wm72y7q" path="res://main_menu.gd" id="1_06t4h"]
 [ext_resource type="AudioStream" uid="uid://jn5rqo83gsw1" path="res://audio/menu.mp3" id="2_7vrkn"]
-[ext_resource type="Texture2D" uid="uid://cogbw76y22ewe" path="res://assets/Bg_Compressed.png" id="2_jix8l"]
+[ext_resource type="Texture2D" uid="uid://dvgs4tj4wwuge" path="res://assets/Main Menu/MainMenu Bg.png" id="2_8qtwp"]
+[ext_resource type="Texture2D" uid="uid://d4kmcdkhhiqnh" path="res://assets/Main Menu/Go Button/Go-1.png" id="3_dy7ct"]
 [ext_resource type="AudioStream" uid="uid://ccat3qp8mu0yr" path="res://audio/click.wav" id="3_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://clvk72ooiajfo" path="res://assets/Main Menu/Animated Characters/Char-1.png" id="3_g8g3n"]
+[ext_resource type="Texture2D" uid="uid://b2g6dyu8syglo" path="res://assets/Main Menu/Go Button/Go-2.png" id="4_0o4t1"]
+[ext_resource type="Texture2D" uid="uid://bbw5pij2hw06s" path="res://assets/Main Menu/Animated Characters/Char-2.png" id="4_8u0te"]
+[ext_resource type="Texture2D" uid="uid://cy6q73e5njhky" path="res://assets/Main Menu/Go Button/Go-3.png" id="5_0k4wn"]
+[ext_resource type="Texture2D" uid="uid://cxll0arqam82p" path="res://assets/Main Menu/Animated Characters/Char-3.png" id="5_oiatc"]
+[ext_resource type="Texture2D" uid="uid://dyol03bchxogb" path="res://assets/Main Menu/Go Button/Go-4.png" id="6_j5v2v"]
+[ext_resource type="Texture2D" uid="uid://0qbpyunagvhr" path="res://assets/Main Menu/Animated Characters/Char-4.png" id="6_mg3m2"]
+[ext_resource type="Texture2D" uid="uid://cn44dod005fl" path="res://assets/Main Menu/Animated Characters/Char-5.png" id="7_ojb7r"]
+[ext_resource type="Texture2D" uid="uid://0ee84os2b720" path="res://assets/Main Menu/Animated Characters/Char-6.png" id="8_e5qqf"]
+[ext_resource type="Texture2D" uid="uid://pmideb5xd15r" path="res://assets/Main Menu/Animated Characters/Char-7.png" id="9_7bbuq"]
+[ext_resource type="Texture2D" uid="uid://c7tfl5qttse02" path="res://assets/Main Menu/Animated Characters/Char-8.png" id="10_saq78"]
+
+[sub_resource type="Animation" id="Animation_8uw0o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_ql5ya"]
+resource_name = "default"
+length = 8.000017
+loop_mode = 1
+step = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_g8g3n"), ExtResource("4_8u0te"), ExtResource("5_oiatc"), ExtResource("6_mg3m2"), ExtResource("7_ojb7r"), ExtResource("8_e5qqf"), ExtResource("9_7bbuq"), ExtResource("10_saq78")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ka3nr"]
+_data = {
+&"RESET": SubResource("Animation_8uw0o"),
+&"default": SubResource("Animation_ql5ya")
+}
+
+[sub_resource type="Animation" id="Animation_iotk1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_w44g7"]
+resource_name = "default"
+length = 4.0000167
+loop_mode = 1
+step = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_dy7ct"), ExtResource("4_0o4t1"), ExtResource("5_0k4wn"), ExtResource("6_j5v2v")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cm266"]
+_data = {
+&"RESET": SubResource("Animation_iotk1"),
+&"default": SubResource("Animation_w44g7")
+}
 
 [node name="MainMenu" type="Control" unique_id=1629698840]
 layout_mode = 3
@@ -18,25 +108,37 @@ script = ExtResource("1_06t4h")
 layout_mode = 0
 offset_right = 2560.0
 offset_bottom = 1440.0
-texture = ExtResource("2_jix8l")
+texture = ExtResource("2_8qtwp")
 
-[node name="PlayButton" type="Button" parent="." unique_id=349001034]
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=478375220]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect2" unique_id=1097613555]
+libraries/ = SubResource("AnimationLibrary_ka3nr")
+autoplay = &"default"
+
+[node name="PlayButton" type="TextureButton" parent="." unique_id=1940550178]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -231.0
-offset_top = -76.0
-offset_right = 231.0
-offset_bottom = 76.0
-grow_horizontal = 2
+offset_left = -591.0
+offset_top = -237.0
+offset_right = -127.0
+offset_bottom = 238.0
+grow_horizontal = 0
 grow_vertical = 2
-theme_override_font_sizes/font_size = 42
-text = "Play"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayButton" unique_id=1865206245]
+libraries/ = SubResource("AnimationLibrary_cm266")
+autoplay = &"default"
 
 [node name="Label" type="Label" parent="." unique_id=1531256220]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

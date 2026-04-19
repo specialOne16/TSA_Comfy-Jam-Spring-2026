@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dwfigndcl7wa2" path="res://assets/Wave/First - PopUp/PopUp-7.png" id="21_c3and"]
 [ext_resource type="AudioStream" uid="uid://dl4njwtqbbbob" path="res://audio/Correct_sheep_sfx.wav" id="26_n6aft"]
 [ext_resource type="AudioStream" uid="uid://bwcp71vxb8yfk" path="res://audio/wrong_sheep_sfx.wav" id="27_2qs7h"]
+[ext_resource type="AudioStream" uid="uid://bkrfo5sjrmld5" path="res://audio/F1sh - Dog bark 2026-04-18 18_59.wav" id="28_2qs7h"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ueusv"]
 vertices = PackedVector2Array(2550, 1273.2188, 2397.7969, 1334, 1610, 1334, 1610, 1206, 1671.5313, 841.02344, 2112, 778.10156, 2550, 840.6719, -138, 1206, -138, 1398, -2550, 1398, -2550, 10, -138, 10, -138, 1034, 1607.2109, 1034)
@@ -199,6 +200,9 @@ stream = ExtResource("26_n6aft")
 
 [node name="WrongSheepSfx" type="AudioStreamPlayer" parent="." unique_id=1939726075]
 stream = ExtResource("27_2qs7h")
+
+[node name="F1ShDogBark202604181859" type="AudioStreamPlayer" parent="." unique_id=1202740834]
+stream = ExtResource("28_2qs7h")
 
 [connection signal="sheep_tossed" from="Inspection" to="." method="_on_inspection_sheep_tossed"]
 [connection signal="finished" from="Gameplay" to="." method="_on_gameplay_finished"]

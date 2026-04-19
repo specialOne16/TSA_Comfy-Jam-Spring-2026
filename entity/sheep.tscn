@@ -116,7 +116,7 @@ script = ExtResource("1_mn4pi")
 position = Vector2(0, -14.999999)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_3q2d2")
-animation = &"notilt"
+animation = &"idle"
 autoplay = "notilt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=172810179]
